@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Veltrix - Responsive Bootstrap 4 Admin Dashboard</title>
+    <meta content="Admin Dashboard" name="description"/>
+    <meta content="Themesbrand" name="author"/>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <link href="http://cdn.bootstrapmb.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/metisMenu.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a href="index.html" class="logo">
+						<span>
+							<img src="../assets/images/logo-light.png" alt="" height="18">
+						</span>
+                <i>
+                    <img src="../assets/images/logo-sm.png" alt="" height="22">
+                </i>
+            </a>
+        </div>
+        <nav class="navbar-custom">
+            <ul class="list-inline menu-left mb-0">
+                <li class="float-left">
+                    <button class="button-menu-mobile open-left waves-effect">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+                    <span style="font-size: 18px;margin-left: 5px;">商品查询</span>
+                </li>
+            </ul>
+
+
+        </nav>
+    </div>
+    <!-- Top Bar End -->
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div id="leftMenu">
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- 页面主体内容开始 -->
+        <div class="content">
+            <!-- 表单开始 -->
+            <form class="repeater" enctype="multipart/form-data" style="margin-left: 15px;">
+                <div data-repeater-list="group-a">
+                    <!-- <div data-repeater-item="" class="row">
+                        <div class="form-group col-lg-2">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="group-a[0][untyped-input]" class="form-control">
+                        </div>
+
+                        <div class="form-group col-lg-2">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+
+                        <div class="form-group col-lg-2">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control">
+                        </div>
+
+                        <div class="col-lg-2 align-self-center">
+                            <input data-repeater-delete="" type="button" class="btn btn-primary btn-block" value="一建查询">
+                        </div>
+                    </div> -->
+
+                </div>
+            </form>
+            <!-- 表单结束 -->
+            <!-- 页面主体内容开始 -->
+            <div class="container-fluid">
+                <div class="page-title-box">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <h4 class="page-title">商品查询</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="float-right d-none d-md-block">
+                                <div class="dropdown"><!--
+						                        <button class="btn btn-primary dropdown-toggle arrow-none waves-effect waves-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						                            <i class="mdi mdi-settings mr-2"></i> Settings
+						                        </button> -->
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
+                </div>
+                <!-- end page-title -->
+
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="dataTables_length" id="datatable_length"><label><select
+                                                        name="datatable_length" aria-controls="datatable"
+                                                        class="custom-select custom-select-sm form-control form-control-sm">
+                                                    <option value="10">10条/页</option>
+                                                    <option value="25">25条/页</option>
+                                                    <option value="50">50条/页</option>
+                                                    <option value="100">100条/页</option>
+                                                </select> </label></div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <div id="datatable_filter" class="dataTables_filter"><label>搜索:<input
+                                                        type="search" class="form-control form-control-sm"
+                                                        placeholder="" aria-controls="datatable"></label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="datatable"
+                                                       class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                                                       style="border-collapse: collapse; border-spacing: 0px; width: 100%;"
+                                                       role="grid" aria-describedby="datatable_info">
+                                                    <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable"
+                                                            rowspan="1" colspan="1" style="width: 71px;"
+                                                            aria-sort="ascending"
+                                                            aria-label="Image: activate to sort column descending">图片
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                            rowspan="1" colspan="1" style="width: 351px;"
+                                                            aria-label="Product Name: activate to sort column ascending"></th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                            rowspan="1" colspan="1" style="width: 118px;"
+                                                            aria-label="Added Date: activate to sort column ascending">
+                                                            添加日期
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                            rowspan="1" colspan="1" style="width: 86px;"
+                                                            aria-label="Amount: activate to sort column ascending">价格
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                            rowspan="1" colspan="1" style="width: 121px;"
+                                                            aria-label="No. of Units: activate to sort column ascending">
+                                                            数量
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                            rowspan="1" colspan="1" style="width: 66px;"
+                                                            aria-label="Stock: activate to sort column ascending">状态
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                            rowspan="1" colspan="1" style="width: 74px;"
+                                                            aria-label="Action: activate to sort column ascending">操作
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tr role="row" class="odd">
+                                                        <td class="product-list-img sorting_1" tabindex="0">
+                                                            <img src="../assets/images/users/user-1.jpg"
+                                                                 class="img-fluid thumb-md rounded" alt="tbl">
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="mt-0 mb-1">Gray belt watch</h6>
+                                                            <p class="m-0 font-14">Sed ut perspiciatis unde omnis
+                                                                iste.</p>
+                                                        </td>
+                                                        <td>22/05/2017</td>
+                                                        <td>$521</td>
+                                                        <td>5841</td>
+                                                        <td>
+                                                            <div class="progress" style="height: 5px;">
+                                                                <div class="progress-bar bg-danger" role="progressbar"
+                                                                     style="width: 25%;" aria-valuenow="25"
+                                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                               data-toggle="tooltip" data-placement="top" title=""
+                                                               data-original-title="Edit"><i
+                                                                    class="mdi mdi-pencil font-18"></i></a>
+                                                            <a href="javascript:void(0);" class="text-danger"
+                                                               data-toggle="tooltip" data-placement="top" title=""
+                                                               data-original-title="Delete"><i
+                                                                    class="mdi mdi-close font-18"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="product-list-img sorting_1" tabindex="0">
+                                                            <img src="../assets/images/users/user-2.jpg"
+                                                                 class="img-fluid thumb-md rounded" alt="tbl">
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="mt-0 mb-1">Riverston Glass Chair</h6>
+                                                            <p class="m-0 font-14">natus error sit voluptatem
+                                                                doloremque.</p>
+                                                        </td>
+                                                        <td>28/03/2017</td>
+                                                        <td>$210</td>
+                                                        <td>841</td>
+                                                        <td>
+                                                            <div class="progress" style="height: 5px;">
+                                                                <div class="progress-bar bg-success" role="progressbar"
+                                                                     style="width: 85%;" aria-valuenow="25"
+                                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                               data-toggle="tooltip" data-placement="top" title=""
+                                                               data-original-title="Edit"><i
+                                                                    class="mdi mdi-pencil font-18"></i></a>
+                                                            <a href="javascript:void(0);" class="text-danger"
+                                                               data-toggle="tooltip" data-placement="top" title=""
+                                                               data-original-title="Delete"><i
+                                                                    class="mdi mdi-close font-18"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-5">
+                                                <div class="dataTables_info" id="datatable_info" role="status"
+                                                     aria-live="polite">Showing 1 to 10 of 16 entries
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-7">
+                                                <div class="dataTables_paginate paging_simple_numbers"
+                                                     id="datatable_paginate">
+                                                    <ul class="pagination">
+                                                        <li class="paginate_button page-item previous disabled"
+                                                            id="datatable_previous"><a href="#"
+                                                                                       aria-controls="datatable"
+                                                                                       data-dt-idx="0" tabindex="0"
+                                                                                       class="page-link">Previous</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item active"><a href="#"
+                                                                                                        aria-controls="datatable"
+                                                                                                        data-dt-idx="1"
+                                                                                                        tabindex="0"
+                                                                                                        class="page-link">1</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="datatable"
+                                                                                                  data-dt-idx="2"
+                                                                                                  tabindex="0"
+                                                                                                  class="page-link">2</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item next" id="datatable_next">
+                                                            <a href="#" aria-controls="datatable" data-dt-idx="3"
+                                                               tabindex="0" class="page-link">Next</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- 页面主体内容结束 -->
+        <footer class="footer">
+			© 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i class="mdi mdi-heart text-danger"></i> by 张正华.</span>
+        </footer>
+
+    </div>
+
+</div>
+<!-- 页面主体内容结束 -->
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+
+<!-- jQuery  -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/metisMenu.min.js"></script>
+<script src="../assets/js/jquery.slimscroll.js"></script>
+<script src="../assets/js/waves.min.js"></script>
+<!-- App js -->
+<!--<script src="../assets/js/app.js"></script>-->
+<script>
+    $(function () {
+        $("#leftMenu").load("leftMenu.html");
+    })
+</script>
+</body>
+
+</html>

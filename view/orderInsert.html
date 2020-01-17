@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Veltrix - Responsive Bootstrap 4 Admin Dashboard</title>
+    <meta content="Admin Dashboard" name="description"/>
+    <meta content="Themesbrand" name="author"/>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/metisMenu.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a href="index.html" class="logo">
+						<span>
+							<img src="../assets/images/logo-light.png" alt="" height="18">
+						</span>
+                <i>
+                    <img src="../assets/images/logo-sm.png" alt="" height="22">
+                </i>
+            </a>
+        </div>
+        <nav class="navbar-custom">
+            <ul class="list-inline menu-left mb-0">
+                <li class="float-left">
+                    <button class="button-menu-mobile open-left waves-effect">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+                    <span style="font-size: 18px;margin-left: 5px;">订单录入</span>
+                </li>
+            </ul>
+
+
+        </nav>
+    </div>
+    <!-- Top Bar End -->
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div id="leftMenu">
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- 页面主体内容开始 -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- end row -->
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="page-title-box">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="productname">Product Name</label>
+                                                        <input id="productname" name="productname" type="text"
+                                                               class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="manufacturername">Manufacturer Name</label>
+                                                        <input id="manufacturername" name="manufacturername" type="text"
+                                                               class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="productdesc">Product Description</label>
+                                                        <textarea class="form-control" id="productdesc"
+                                                                  rows="5"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="manufacturerbrand">Manufacturer Brand</label>
+                                                        <input id="manufacturerbrand" name="manufacturerbrand"
+                                                               type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="price">Price</label>
+                                                        <input id="price" name="price" type="text" class="form-control">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label">Category</label>
+                                                        <select class="form-control select2 select2-hidden-accessible"
+                                                                data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                            <option data-select2-id="3">Select</option>
+                                                            <option value="AK">Alaska</option>
+                                                            <option value="HI">Hawaii</option>
+                                                        </select><span
+                                                            class="select2 select2-container select2-container--default"
+                                                            dir="ltr" data-select2-id="2" style="width: 574.6px;"><span
+                                                            class="selection"><span
+                                                            class="select2-selection select2-selection--single"
+                                                            role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                            tabindex="0" aria-labelledby="select2-5o2j-container"><span
+                                                            class="select2-selection__rendered"
+                                                            id="select2-5o2j-container" role="textbox"
+                                                            aria-readonly="true" title="Select">Select</span><span
+                                                            class="select2-selection__arrow" role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                            class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Features</label>
+
+                                                        <select class="select2 form-control select2-multiple select2-hidden-accessible"
+                                                                multiple="" data-placeholder="Choose ..."
+                                                                data-select2-id="4" tabindex="-1" aria-hidden="true">
+                                                            <option value="AK">Alaska</option>
+                                                            <option value="HI">Hawaii</option>
+                                                            <option value="CA">California</option>
+                                                            <option value="NV">Nevada</option>
+                                                            <option value="OR">Oregon</option>
+                                                            <option value="WA">Washington</option>
+                                                        </select><span
+                                                            class="select2 select2-container select2-container--default"
+                                                            dir="ltr" data-select2-id="5" style="width: 574.6px;"><span
+                                                            class="selection"><span
+                                                            class="select2-selection select2-selection--multiple"
+                                                            role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                            tabindex="-1"><ul class="select2-selection__rendered"><li
+                                                            class="select2-search select2-search--inline"><input
+                                                            class="select2-search__field" type="search" tabindex="0"
+                                                            autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                            spellcheck="false" role="textbox" aria-autocomplete="list"
+                                                            placeholder=""
+                                                            style="width: 0.75em;"></li></ul></span></span><span
+                                                            class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Product Image</label> <br>
+                                                        <img src="../assets/images/users/user-1.jpg" alt="product img"
+                                                             class="img-fluid rounded" style="max-width: 200px;">
+                                                        <br>
+                                                        <button type="file"
+                                                                class="btn btn-info mt-2 waves-effect waves-light">
+                                                            Change Image
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success mr-1 waves-effect waves-light">
+                                                Save Changes
+                                            </button>
+                                            <button type="submit" class="btn btn-secondary waves-effect">Cancel</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                    </div>
+                    <!-- container-fluid -->
+
+                </div>
+                <!-- 结束 -->
+            </div>
+        </div>
+        <!-- 页面主体内容结束 -->
+        <footer class="footer">
+            © 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i
+                class="mdi mdi-heart text-danger"></i> by 张正华.</span>
+        </footer>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+
+<!-- jQuery  -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/metisMenu.min.js"></script>
+<script src="../assets/js/jquery.slimscroll.js"></script>
+<script src="../assets/js/waves.min.js"></script>
+<!-- App js -->
+<!--<script src="../assets/js/app.js"></script>-->
+<script>
+    $(function () {
+        $("#leftMenu").load("leftMenu.html");
+    })
+</script>
+</body>
+
+</html>

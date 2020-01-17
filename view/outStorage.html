@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>出库明细</title>
+    <meta content="Admin Dashboard" name="description"/>
+    <meta content="Themesbrand" name="author"/>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <link href="http://cdn.bootstrapmb.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/metisMenu.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a href="index.html" class="logo">
+						<span>
+							<img src="../assets/images/logo-light.png" alt="" height="18">
+						</span>
+                <i>
+                    <img src="../assets/images/logo-sm.png" alt="" height="22">
+                </i>
+            </a>
+        </div>
+        <nav class="navbar-custom">
+            <ul class="list-inline menu-left mb-0">
+                <li class="float-left">
+                    <button class="button-menu-mobile open-left waves-effect">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+                    <span style="font-size: 18px;margin-left: 5px;">出库明细</span>
+                </li>
+            </ul>
+
+
+        </nav>
+    </div>
+    <!-- Top Bar End -->
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div id="leftMenu">
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- 页面主体内容开始 -->
+        <div class="content">
+            <!-- 表单开始 -->
+            <!-- <form class="repeater" enctype="multipart/form-data" style="margin-left: 15px;">
+                <div data-repeater-list="group-a">
+                    <div data-repeater-item="" class="row">
+                        <div class="form-group col-lg-2">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="group-a[0][untyped-input]" class="form-control">
+                        </div>
+
+                        <div class="form-group col-lg-2">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+
+                        <div class="form-group col-lg-2">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control">
+                        </div>
+
+                        <div class="col-lg-2 align-self-center">
+                            <input data-repeater-delete="" type="button" class="btn btn-primary btn-block" value="一建查询">
+                        </div>
+                    </div>
+
+                </div>
+            </form> -->
+            <!-- 表单结束 -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 页面主体内容结束 -->
+        <footer class="footer">
+            © 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i
+                class="mdi mdi-heart text-danger"></i> by 张正华.</span>
+        </footer>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+
+<!-- jQuery  -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/metisMenu.min.js"></script>
+<script src="../assets/js/jquery.slimscroll.js"></script>
+<script src="../assets/js/waves.min.js"></script>
+
+<!-- App js -->
+<!--<script src="../assets/js/app.js"></script>-->
+<script>
+    $(function () {
+        $("#leftMenu").load("leftMenu.html");
+    })
+</script>
+</body>
+
+</html>
