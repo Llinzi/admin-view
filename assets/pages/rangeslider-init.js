@@ -15,16 +15,27 @@ $(document).ready(function () {
         max: 1000,
         from: 550
     });
-    
+
     $("#range_03").ionRangeSlider({
         skin: "modern",
         type: "double",
         grid: true,
         min: 0,
-        max: 1000,
-        from: 200,
-        to: 800,
-        prefix: "$"
+        max: 200,
+        from: vm.params.startPrices,
+        to: vm.params.endPrices,
+        prefix: "￥",
+        /*onChange: function (obj) {
+            console.log(obj);
+        },*/
+        onFinish: function (obj) {
+            vm.params.startPrices = obj.from_pretty;
+            vm.params.endPrices = obj.to_pretty;
+        },
+        /*onUpdate:function (obj) {
+            vm.params.startPrices = obj.from_pretty;
+            vm.params.endPrices = obj.to_pretty;
+        }*/
     });
    
     $("#range_04").ionRangeSlider({

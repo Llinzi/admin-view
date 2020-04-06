@@ -1,12 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6f479af-6b8e-4a12-aae1-58033877539c" name="Default Changelist" comment="" />
+    <list default="true" id="d6f479af-6b8e-4a12-aae1-58033877539c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/css/ion.rangeSlider.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/upload-img.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/jiahao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/products/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/products/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/products/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/products/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/products/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/products/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/products/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/products/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/axios.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/ion.rangeSlider.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/parsley.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/employeesInsert.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/employeesSelect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/rangeslider-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/rangeslider-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/coffeeInsert.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/coffeeInsert.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/coffeeSelect.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/coffeeSelect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/leftMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/leftMenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/userInsert.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/userInsert.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/userSelect.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/userSelect.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -15,6 +54,9 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -26,6 +68,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1WK6Ax09HJv4n9iuy62tt2WN0lm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -40,6 +83,8 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\workspace\view\admin-view\assets\js" />
       <recent name="E:\workspace\view\admin-view\assets\css" />
+      <recent name="E:\workspace\view\admin-view\assets\images" />
+      <recent name="E:\workspace\view\admin-view\view" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -68,11 +113,40 @@
       <workItem from="1578964943182" duration="9214000" />
       <workItem from="1578978940957" duration="17780000" />
       <workItem from="1579048432783" duration="21693000" />
-      <workItem from="1579240767880" duration="4972000" />
+      <workItem from="1579240767880" duration="6172000" />
+      <workItem from="1583381102752" duration="313000" />
+      <workItem from="1583598636816" duration="341000" />
+      <workItem from="1583721286191" duration="135000" />
+      <workItem from="1583842014077" duration="317000" />
+      <workItem from="1583842595614" duration="534000" />
+      <workItem from="1584758476767" duration="6102000" />
+      <workItem from="1584842597784" duration="1801000" />
+      <workItem from="1585023266829" duration="13000" />
+      <workItem from="1585026137438" duration="11667000" />
+      <workItem from="1585113426671" duration="26701000" />
+      <workItem from="1585408068676" duration="877000" />
+      <workItem from="1585454381017" duration="9976000" />
+      <workItem from="1585537165490" duration="11143000" />
+      <workItem from="1585574315404" duration="10745000" />
+      <workItem from="1585621740270" duration="6796000" />
+      <workItem from="1586008203076" duration="2046000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

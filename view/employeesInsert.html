@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>咖啡后台-员工录入</title>
+    <meta content="Admin Dashboard" name="description"/>
+    <meta content="Themesbrand" name="author"/>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+    <!--<link href="http://cdn.bootstrapmb.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--bootstrap4版本不支持bootstrapValidator的样式，所以后面的图标不显示，但是可以验证-->
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/metisMenu.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <div class="topbar">
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a href="index.html" class="logo">
+                <span><img src="../assets/images/logo-light.png" alt="" height="18"></span>
+                <i><img src="../assets/images/logo-sm.png" alt="" height="22"></i>
+            </a>
+        </div>
+        <nav class="navbar-custom">
+            <ul class="list-inline menu-left mb-0">
+                <li class="float-left">
+                    <button class="button-menu-mobile open-left waves-effect">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+                    <span style="font-size: 18px;margin-left: 5px;">员工录入</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Top Bar End -->
+
+    <!--  Left Sidebar Start -->
+    <div id="leftMenu">
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page" id="content">
+        <!-- 页面主体内容开始 -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="page-title-box">
+                            <h4 class="page-title">输入员工信息</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form id="empForm">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label >姓名</label>
+                                                        <input v-model="params.employeesName" name="employeesName" type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label >密码</label>
+                                                        <input v-model="params.employeesPassword" name="employeesPassword" type="password" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>手机号</label>
+                                                        <input v-model="params.employeesPhone" name="employeesPhone" type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>身份证号</label>
+                                                        <input v-model="params.employeesNumber" name="employeesNumber" type="text" class="form-control">
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+
+                                                    <div class="form-group">
+                                                        <label>确认密码</label>
+                                                        <input name="rePassword" type="password" class="form-control">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6" >
+                                                            <div class="form-group">
+                                                            <label>性别</label>
+                                                            <div class="row">
+                                                                <div class="custom-control custom-radio col-sm-2" style="margin-left: 18px">
+                                                                    <input v-model="params.employeesSex" type="radio" value="0" id="customRadio1" name="employeesSex" class="custom-control-input">
+                                                                    <label class="custom-control-label" for="customRadio1">男</label>
+                                                                </div>
+                                                                <div class="custom-control custom-radio col-sm-2">
+                                                                    <input v-model="params.employeesSex" type="radio" value="1" id="customRadio2" name="employeesSex" class="custom-control-input">
+                                                                    <label class="custom-control-label" for="customRadio2">女</label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">年龄</label>
+                                                                <input v-model="params.employeesAge" name="employeesAge" type="text" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-sm-6">
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6" >
+                                                            <div class="form-group">
+                                                                <label class="control-label">工资</label>
+                                                                <input v-model="params.employeesSalary" name="employeesSalary" type="text" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">业绩</label>
+                                                                <input v-model="params.employeesResult" name="employeesResult" type="text" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">职位</label>
+                                                                <select v-model="params.employeesJob" class="form-control" name="employeesJob">
+                                                                    <option value="普通员工">普通员工</option>
+                                                                    <option value="店长">店长</option>
+                                                                    <option value="经理">经理</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">状态</label>
+                                                                <select v-model="params.employeesStatus" class="form-control" name="employeesStatus">
+                                                                    <option value="0">启用</option>
+                                                                    <option value="1">禁用</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="button" id="insertEmp" @click="empInsert()" class="btn btn-success mr-1 waves-effect waves-light">保存</button>
+                                                <button type="button" id="updateEmp" @click="updateEmp()" class="btn btn-success mr-1 waves-effect waves-light">修改</button>
+                                                <button type="reset" id="reset" class="btn btn-secondary waves-effect">重置</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                    </div>
+                    <!-- container-fluid -->
+
+                </div>
+            </div>
+        </div>
+        <!-- 页面主体内容结束 -->
+        <footer class="footer">
+            © 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i class="mdi mdi-heart text-danger"></i> by 蔬菜百科</span>
+        </footer>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/vue.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrapValidator.min.js"></script>
+<script src="../assets/js/metisMenu.min.js"></script>
+<script src="../assets/js/jquery.slimscroll.js"></script>
+<script src="../assets/js/waves.min.js"></script>
+<!-- App js -->
+<!--<script src="../assets/js/app.js"></script>-->
+<script>
+    $(function () {
+        //加载左边菜单
+        $("#leftMenu").load("leftMenu.html");
+        //显示图片
+        $("#userHphoto").change(function() {
+            /*在改变照片时，清空以前图片*/
+            $(".img").empty();
+            var oFReader = new FileReader();
+            var file = document.getElementById('userHphoto').files[0];
+            oFReader.readAsDataURL(file);
+            oFReader.onloadend = function(oFRevent){
+                var src = oFRevent.target.result;
+                $(".img").attr("src",src);
+            }
+        });
+    })
+</script>
+<script>
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            params:{
+                employeesJob:'普通员工',
+                employeesStatus:0,
+
+            }
+        },
+        mounted:function () {
+
+            //隐藏 vip 和 收货地址框 修改按钮
+            $("#updateEmp").hide();
+            //初始化表单验证
+            $("#empForm").bootstrapValidator({
+                message: 'This value is not valid',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                //验证规则 对应表单中的 name 属性
+                fields:{
+                    employeesName:{
+                        validators:{
+                            notEmpty:{//非空验证
+                                message: '姓名不能为空'
+                            },
+                            stringLength:{ //验证长度
+                                min:2,
+                                max:6,
+                                message:'长度在2-6之间'
+                            }
+                        }
+                    },
+                    employeesPassword:{
+                        validators:{
+                            notEmpty: {
+                                message:'密码不能为空'
+                            },
+                            stringLength:{ //验证长度
+                                min:6,
+                                max:12,
+                                message:'长度在6-12之间'
+                            }
+                        }
+
+                    },
+                    rePassword:{
+                        validators:{
+                            identical: {//与指定控件内容比较是否相同，比如两次密码不一致
+                                field: 'employeesPassword',//指定控件name
+                                message: '两次密码不一致'
+                            }
+                        }
+                    },
+                    employeesPhone:{
+                        validators:{
+                            notEmpty:{
+                                message:'手机号不能为空'
+                            },
+                            regexp: {
+                                regexp: /^1\d{10}$/,
+                                message: '手机号格式错误'
+                            },
+                            /*remote:{ //将内容发送至指定页面验证，返回验证结果，比如查询手机号是否存在
+
+                            }*/
+                        }
+                    },
+                    employeesNumber:{
+                        validators:{
+                            notEmpty:{
+                                message:'身份证号不能为空'
+                            },
+                            numeric:{
+                                message:'请填写数字'
+                            },
+                            stringLength:{ //验证长度
+                                min:18,
+                                max:18,
+                                message:'身份证格式不对'
+                            }
+                        }
+                    },
+                    employeesSex:{
+                        validators:{
+                            notEmpty:{
+                                message:'请选择性别'
+                            }
+                        }
+                    },
+
+                    employeesAge:{
+                        validators:{
+                            notEmpty:{
+                                message:'请输入年龄'
+                            },
+                            numeric:{
+                                message:'请填写数字'
+                            }
+                        }
+                    },
+
+                    employeesSalary:{
+                        validators:{
+                            notEmpty:{
+                                message:'请输入工资'
+                            },
+                            numeric:{
+                                message:'请填写数字'
+                            }
+                        }
+                    },
+
+                    employeesJob:{
+                        validators:{
+                            notEmpty:{
+                                message:'请选择职位'
+                            }
+                        }
+                    },
+                    employeesStatus:{
+                        validators:{
+                            notEmpty:{
+                                message:'请选择状态'
+                            }
+                        }
+                    },
+                }
+            });
+
+            this.showEmpData();
+        },
+        methods:{
+            //添加用户信息
+            empInsert:function () {
+                //手动验证表单
+                $("#empForm").data('bootstrapValidator').validate();
+                //获得验证状态
+                var flag = $("#empForm").data('bootstrapValidator').isValid();
+                //判断是否验证成功，成功添加员工信息
+                if(flag){
+                    $.ajax({
+                        type: "POST",
+                        url:"http://localhost:9000/employees/addEmployees",
+                        dataType:"json",
+                        contentType: "application/json",
+                        data:JSON.stringify(vm.params),
+                        success:function (data) {
+                            if (data.code === 0){
+                                alert(data.msg);
+                                window.location.href="employeesSelect.html"
+                            }else {
+                                alert(data.msg);
+                            }
+                        }
+                    });
+                }else {
+                    alert("请填写相应信息！")
+                }
+            },
+            //显示用户信息
+            showEmpData(){
+                //从缓存里面拿到用户信息
+                var empDate = JSON.parse(window.sessionStorage.getItem("empData"));
+                if (empDate != null){
+                    $("#updateEmp").show();
+                    $("#insertEmp").hide();
+                    $("#reset").hide();
+                    this.params = empDate;
+                }
+            },
+            //修改用户信息
+            updateEmp:function () {
+                $.ajax({
+                    type: "POST",
+                    url:"http://localhost:9000/employees/updateEmployees",
+                    dataType:"json",
+                    //async:false, //同步
+                    contentType: "application/json",
+                    data:JSON.stringify(vm.params),
+                    success:function (data) {
+                        if (data.code == 0){
+                            alert(data.msg);
+                            //删除缓存数据
+                            window.sessionStorage.removeItem("empData");
+                            window.location.href = "employeesSelect.html";
+                        }else {
+                            alert(data.msg);
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

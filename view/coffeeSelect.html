@@ -5,15 +5,18 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Veltrix - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>咖啡管理后台-咖啡查询</title>
     <meta content="Admin Dashboard" name="description"/>
     <meta content="Themesbrand" name="author"/>
     <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <link href="../assets/css/ion.rangeSlider.min.css" rel="stylesheet" type="text/css">
 
     <link href="http://cdn.bootstrapmb.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/metisMenu.min.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/upload-img.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -59,240 +62,223 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-    <div class="content-page">
+    <div class="content-page" id="content">
         <!-- 页面主体内容开始 -->
         <div class="content">
-            <!-- 表单开始 -->
-            <form class="repeater" enctype="multipart/form-data" style="margin-left: 15px;">
-                <div data-repeater-list="group-a">
-                    <!-- <div data-repeater-item="" class="row">
-                        <div class="form-group col-lg-2">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="group-a[0][untyped-input]" class="form-control">
-                        </div>
-
-                        <div class="form-group col-lg-2">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control">
-                        </div>
-
-                        <div class="form-group col-lg-2">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control">
-                        </div>
-
-                        <div class="col-lg-2 align-self-center">
-                            <input data-repeater-delete="" type="button" class="btn btn-primary btn-block" value="一建查询">
-                        </div>
-                    </div> -->
-
-                </div>
-            </form>
-            <!-- 表单结束 -->
             <!-- 页面主体内容开始 -->
             <div class="container-fluid">
                 <div class="page-title-box">
                     <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <h4 class="page-title">商品查询</h4>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="float-right d-none d-md-block">
-                                <div class="dropdown"><!--
-						                        <button class="btn btn-primary dropdown-toggle arrow-none waves-effect waves-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						                            <i class="mdi mdi-settings mr-2"></i> Settings
-						                        </button> -->
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
+                            <div class="col-sm-3 col-md-2">
+                                <div class="dataTables_filter">
+                                    <label>
+                                        咖啡名称:<input v-model="params.coffeeName" type="text" class="form-control form-control-sm">
+                                    </label>
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="col-sm-3 col-md-2">
+                                <div class="dataTables_filter">
+                                    <label>
+                                        价格:
+                                    </label>
+                                    <input v-model="params.startPrices" type="text" id="range_03">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 col-md-2">
+                                <div class="dataTables_length" >
+                                    <label>
+                                        <select v-model="params.coffeeStatus" class="custom-select custom-select-md form-control form-control-sm" style="margin-top: 17px">
+                                            <option value="-1">选择状态</option>
+                                            <option value="0">启用</option>
+                                            <option value="1">禁用</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 col-md-1">
+                                <button @click="selectCoffee()" type="button" class="btn btn-info waves-effect waves-light" style="margin-top: 17px">查询</button>
+                            </div>
+
                     </div> <!-- end row -->
                 </div>
                 <!-- end page-title -->
 
                 <div class="row">
-                    <div class="col-12">
-
-                        <div class="card">
+                    <div class="col-xl-3 col-md-6" v-for="(data,index) in dataList">
+                        <div class="card product-box">
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="dataTables_length" id="datatable_length"><label><select
-                                                        name="datatable_length" aria-controls="datatable"
-                                                        class="custom-select custom-select-sm form-control form-control-sm">
-                                                    <option value="10">10条/页</option>
-                                                    <option value="25">25条/页</option>
-                                                    <option value="50">50条/页</option>
-                                                    <option value="100">100条/页</option>
-                                                </select> </label></div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div id="datatable_filter" class="dataTables_filter"><label>搜索:<input
-                                                        type="search" class="form-control form-control-sm"
-                                                        placeholder="" aria-controls="datatable"></label></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table id="datatable"
-                                                       class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
-                                                       style="border-collapse: collapse; border-spacing: 0px; width: 100%;"
-                                                       role="grid" aria-describedby="datatable_info">
-                                                    <thead>
-                                                    <tr role="row">
-                                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable"
-                                                            rowspan="1" colspan="1" style="width: 71px;"
-                                                            aria-sort="ascending"
-                                                            aria-label="Image: activate to sort column descending">图片
-                                                        </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
-                                                            rowspan="1" colspan="1" style="width: 351px;"
-                                                            aria-label="Product Name: activate to sort column ascending"></th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
-                                                            rowspan="1" colspan="1" style="width: 118px;"
-                                                            aria-label="Added Date: activate to sort column ascending">
-                                                            添加日期
-                                                        </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
-                                                            rowspan="1" colspan="1" style="width: 86px;"
-                                                            aria-label="Amount: activate to sort column ascending">价格
-                                                        </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
-                                                            rowspan="1" colspan="1" style="width: 121px;"
-                                                            aria-label="No. of Units: activate to sort column ascending">
-                                                            数量
-                                                        </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
-                                                            rowspan="1" colspan="1" style="width: 66px;"
-                                                            aria-label="Stock: activate to sort column ascending">状态
-                                                        </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
-                                                            rowspan="1" colspan="1" style="width: 74px;"
-                                                            aria-label="Action: activate to sort column ascending">操作
-                                                        </th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tr role="row" class="odd">
-                                                        <td class="product-list-img sorting_1" tabindex="0">
-                                                            <img src="../assets/images/users/user-1.jpg"
-                                                                 class="img-fluid thumb-md rounded" alt="tbl">
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mt-0 mb-1">Gray belt watch</h6>
-                                                            <p class="m-0 font-14">Sed ut perspiciatis unde omnis
-                                                                iste.</p>
-                                                        </td>
-                                                        <td>22/05/2017</td>
-                                                        <td>$521</td>
-                                                        <td>5841</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 5px;">
-                                                                <div class="progress-bar bg-danger" role="progressbar"
-                                                                     style="width: 25%;" aria-valuenow="25"
-                                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="product-img">
+                                    <a @click="coffeePhotoInfo(data.coffeeId,data.coffeePhoto)" href="#" data-toggle="modal" data-target=".bs-example-modal-sm" title="点击修改咖啡图片">
+                                        <img  v-if="data.coffeePhoto == null || data.coffeePhoto == ''" src="../assets/images/products/1.jpg" class="img-fluid rounded-top mx-auto d-block">
+                                        <img  v-else :src="data.coffeePhoto" class="img-fluid rounded-top mx-auto d-block" style="height: 293.81px">
+                                    </a>
+                                </div>
+
+                                <div class="detail mt-3">
+                                    <h4 class="font-16"><a @click="coffeeInfo(data)" href="#" class="text-dark" data-toggle="modal" data-target="#coffeeMoal">{{data.coffeeName}}</a> <span class="float-right">{{data.stockCount}}库存</span> </h4>
+                                    <span v-if="data.coffeeBrief == null">暂无简介</span>
+                                    <span v-else :title="data.coffeeBrief">{{(data.coffeeBrief).length > 11 ? (data.coffeeBrief).substring(0,10) + '...':(data.coffeeBrief)}}</span>
+                                    <h5 class="my-0 font-16 float-right" v-if="data.coffeeDiscount == 0 || data.coffeeDiscount == null || data.coffeeDiscount == ''">
+                                        <b>￥{{data.coffeePrices}}</b>
+                                    </h5>
+                                    <h5 class="my-0 font-16 float-right" v-else>
+                                        <span class="text-muted mr-2"><del>￥{{data.coffeePrices}}</del></span>
+                                        <b>￥{{data.coffeeDiscount}}</b>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end product-box -->
+                    </div>
+                </div>
+
+                <div style="width: 320px">
+                    <a href="#">
+                    <ul id="page">
+
+                    </ul>
+                    </a>
+                </div>
+                <!--咖啡信息模特框-->
+                <div id="coffeeMoal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0" id="myModalLabel">咖啡信息</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <form id="coffeeInfoForm">
+                                                    <div class="form-group">
+                                                        <label>咖啡名称</label>
+                                                        <input v-model="updateParams.coffeeName" type="text" class="form-control" required placeholder="此值是必需的..."/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>价格(元)</label>
+                                                                <input v-model="updateParams.coffeePrices" type="text" class="form-control" data-parsley-type="number" required placeholder="请填写数字"/>
                                                             </div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0);" class="mr-3 text-primary"
-                                                               data-toggle="tooltip" data-placement="top" title=""
-                                                               data-original-title="Edit"><i
-                                                                    class="mdi mdi-pencil font-18"></i></a>
-                                                            <a href="javascript:void(0);" class="text-danger"
-                                                               data-toggle="tooltip" data-placement="top" title=""
-                                                               data-original-title="Delete"><i
-                                                                    class="mdi mdi-close font-18"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="even">
-                                                        <td class="product-list-img sorting_1" tabindex="0">
-                                                            <img src="../assets/images/users/user-2.jpg"
-                                                                 class="img-fluid thumb-md rounded" alt="tbl">
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mt-0 mb-1">Riverston Glass Chair</h6>
-                                                            <p class="m-0 font-14">natus error sit voluptatem
-                                                                doloremque.</p>
-                                                        </td>
-                                                        <td>28/03/2017</td>
-                                                        <td>$210</td>
-                                                        <td>841</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 5px;">
-                                                                <div class="progress-bar bg-success" role="progressbar"
-                                                                     style="width: 85%;" aria-valuenow="25"
-                                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>折扣价(元)</label>
+                                                                <input v-model="updateParams.coffeeDiscount" type="text" class="form-control" data-parsley-type="number" placeholder="填写数字"/>
                                                             </div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0);" class="mr-3 text-primary"
-                                                               data-toggle="tooltip" data-placement="top" title=""
-                                                               data-original-title="Edit"><i
-                                                                    class="mdi mdi-pencil font-18"></i></a>
-                                                            <a href="javascript:void(0);" class="text-danger"
-                                                               data-toggle="tooltip" data-placement="top" title=""
-                                                               data-original-title="Delete"><i
-                                                                    class="mdi mdi-close font-18"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-5">
-                                                <div class="dataTables_info" id="datatable_info" role="status"
-                                                     aria-live="polite">Showing 1 to 10 of 16 entries
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-7">
-                                                <div class="dataTables_paginate paging_simple_numbers"
-                                                     id="datatable_paginate">
-                                                    <ul class="pagination">
-                                                        <li class="paginate_button page-item previous disabled"
-                                                            id="datatable_previous"><a href="#"
-                                                                                       aria-controls="datatable"
-                                                                                       data-dt-idx="0" tabindex="0"
-                                                                                       class="page-link">Previous</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item active"><a href="#"
-                                                                                                        aria-controls="datatable"
-                                                                                                        data-dt-idx="1"
-                                                                                                        tabindex="0"
-                                                                                                        class="page-link">1</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="datatable"
-                                                                                                  data-dt-idx="2"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">2</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item next" id="datatable_next">
-                                                            <a href="#" aria-controls="datatable" data-dt-idx="3"
-                                                               tabindex="0" class="page-link">Next</a></li>
-                                                    </ul>
-                                                </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-3">
+                                                            <div class="form-group">
+                                                                <label>状态</label>
+                                                                <select v-model="updateParams.coffeeStatus" class="form-control">
+                                                                    <option value="0">上架</option>
+                                                                    <option value="1">下架</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <div class="form-group">
+                                                                <label>咖啡级别</label>
+                                                                <select v-model="updateParams.coffeeLevel" class="form-control">
+                                                                    <option value="0">上架</option>
+                                                                    <option value="1">下架</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <div class="form-group">
+                                                                <label>是否新品</label>
+                                                                <select v-model="updateParams.coffeeIsNew" class="form-control">
+                                                                    <option value="0">是</option>
+                                                                    <option value="1">否</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <div class="form-group">
+                                                                <label>是否热卖</label>
+                                                                <select v-model="updateParams.coffeeIsHot" class="form-control">
+                                                                    <option value="0">是</option>
+                                                                    <option value="1">否</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>咖啡简介</label>
+                                                        <textarea v-model="updateParams.coffeeBrief" class="form-control" rows="2" required placeholder="此值是必需的..."></textarea>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>咖啡详情</label>
+                                                        <textarea v-model="updateParams.coffeeDetails" class="form-control" rows="3" required placeholder="此值是必需的..."></textarea>
+                                                    </div>
+
+                                                    <div class="form-group mb-0">
+                                                        <div>
+                                                            <button type="submit" class="btn btn-primary waves-effect waves-light mr-1" @click="updateCoffeeInfo()">保存</button>
+                                                            <button type="reset" class="btn btn-secondary waves-effect">重置</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <!--<div class="modal-footer">
+                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary waves-effect waves-light" @click="updateCoffeeInfo()">修改</button>
+                            </div>-->
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
 
-                    </div>
-                </div>
+                <!--咖啡图片模特框-->
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0" id="mySmallModalLabel">咖啡图片</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="upload-img-column">
+                                    <div class="upload-wrap">
+                                        <div class="box">
+                                            <label class="p dotted">
+                                                <input type="file" accept="image/jpg,image/jpeg,image/png" name="photo" @change="onChooseImage($event)"/>
+                                                <img v-if="photoParams.coffeePhoto == '' || photoParams.coffeePhoto == null" class="coffeeImg" src="../assets/images/jiahao.png" alt="">
+                                                <img v-else class="coffeeImg" :src="photoParams.coffeePhoto" alt="">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary waves-effect waves-light" @click="uploadImg()">上传图片</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
             </div>
             <!-- end row -->
         </div>
         <!-- 页面主体内容结束 -->
         <footer class="footer">
-			© 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i class="mdi mdi-heart text-danger"></i> by 张正华.</span>
+			© 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i class="mdi mdi-heart text-danger"></i> by 蔬菜百科.</span>
         </footer>
 
     </div>
@@ -311,15 +297,230 @@
 
 <!-- jQuery  -->
 <script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/vue.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/metisMenu.min.js"></script>
 <script src="../assets/js/jquery.slimscroll.js"></script>
 <script src="../assets/js/waves.min.js"></script>
+<script src="../assets/js/axios.min.js"></script>
+<script src="../assets/js/bootstrap-paginator.js"></script>
+<!-- range slider js -->
+<script src="../assets/js/ion.rangeSlider.min.js"></script>
+<script src="../assets/pages/rangeslider-init.js"></script>
+
+<script src="../assets/js/parsley.min.js"></script>
 <!-- App js -->
 <!--<script src="../assets/js/app.js"></script>-->
 <script>
     $(function () {
         $("#leftMenu").load("leftMenu.html");
+    })
+</script>
+<script>
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            params:{
+                coffeeName:"",
+                startPrices:0,
+                endPrices:30,
+                coffeeStatus:-1,
+                pageSize:8,
+                currentPage:1,
+            },
+            file:null,
+            dataList:[],
+
+            //修改咖啡信息所需参数
+            updateParams:{
+
+            },
+            //修改咖啡图片所需参数
+            photoParams:{
+                coffeeId:null,
+                coffeePhoto:''
+            }
+        },
+        mounted:function () {
+            //初始化分页模板
+            var options = {
+                bootstrapMajorVersion: 4,
+                currentPage: this.params.currentPage, // 当前页数
+                numberOfPages: 5, // 显示按钮的数量
+                totalPages: this.params.pages, // 总页数
+                onPageClicked:function(event, originalEvent, type,page){
+                    vm.params.currentPage=page;
+                    vm.selectCoffee();
+                },
+                onPageChanged:function(event, oldPage, newPage){
+                    vm.params.currentPage=newPage;
+                    vm.selectCoffee();
+                }
+            };
+            $("#page").bootstrapPaginator(options);
+
+            this.selectCoffee();
+        },
+
+        methods:{
+            //查询咖啡
+            selectCoffee:function () {
+                axios({
+                    method:'GET',
+                    url:'http://localhost:9000/coffee/selectCoffee',
+                    params: this.params,
+                }).then(res =>{
+                    if (res.data.code === 0){
+                        this.dataList = res.data.dataList;
+                        vm.params.pages = res.data.pages;//总页数
+                        vm.params.currentPage = res.data.pageNum //第几页
+                        $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
+                    }
+                }).catch(res =>{
+                    console.log(res);
+                })
+            },
+
+            //选择图片
+            onChooseImage:function (event) {
+                //$(".coffeeImg").empty();//清空图片
+                //使用FileReader对文件对象进行操作
+                var fileReader = new FileReader();
+                //将读取到的文件编码成Data URL
+                this.file = event.target.files[0];
+                fileReader.readAsDataURL(this.file);
+                //读取完成时
+                fileReader.onload = function () {
+                    //文件输出的内容
+                    var resultSrc = fileReader.result;
+                    $(".coffeeImg").attr("src",resultSrc);
+                }
+            },
+
+            //点击图片，获得咖啡图片id
+            coffeePhotoInfo:function(coffeeId,coffeePhoto){
+                this.photoParams.coffeeId = coffeeId;
+                this.photoParams.coffeePhoto = coffeePhoto;
+            },
+
+            //上传图片
+            uploadImg:function () {
+                //删除原图片
+                if(this.photoParams.coffeePhoto !=null && this.photoParams.coffeePhoto != ''){
+                    var url = "http://localhost:9000/upload/deletePhoto";
+                    var args = {
+                        "photo":this.photoParams.coffeePhoto,
+                        "type":"coffee"
+                    }
+                    $.post(url,args,function (res) {
+                        //删除成功后上传新的图片
+                        if (res.code === 0 ){
+                            //创建FormData对象
+                            var formDate = new FormData();
+                            formDate.append('photo',vm.file);
+                            formDate.append('type','coffee');
+                            axios({
+                                method: "POST",
+                                url:"http://localhost:9000/upload/uploadPhoto",
+                                data: formDate,
+                                headers:{
+                                    "Content-Type": "multipart/form-data"
+                                }
+                            }).then(res => {
+                                //上传图片成功，获取图片信息后，保存图片信息
+                                if (res.data.code === 0){
+                                    vm.photoParams.coffeePhoto ="http://localhost:9000/img/coffee/" + res.data.fileName + res.data.extendedName;
+                                    axios({
+                                        method:"POST",
+                                        url:"http://localhost:9000/coffee/updateCoffee",
+                                        data:JSON.stringify(vm.photoParams),
+                                        headers: {
+                                            "Content-Type":"application/json"
+                                        }
+                                    }).then(res => {
+                                        if (res.data.code === 0){
+                                            vm.selectCoffee();
+                                            $(".bs-example-modal-sm").modal("hide")//关闭模态框
+                                        }
+                                    }).catch(res => {
+                                        console.log(res);
+                                    })
+                                }
+                            }).catch(res => {
+                                console.log(res);
+                            })
+                        }else {
+                            console.log("删除图片失败！");
+                        }
+                    })
+
+                }else {
+                    //创建FormData对象
+                    var formDate = new FormData();
+                    formDate.append('photo',vm.file);
+                    formDate.append('type','coffee');
+                    axios({
+                        method: "POST",
+                        url:"http://localhost:9000/upload/uploadPhoto",
+                        data: formDate,
+                        headers:{
+                            "Content-Type": "multipart/form-data"
+                        }
+                    }).then(res => {
+                        //上传图片成功，获取图片信息后，保存图片信息
+                        if (res.data.code === 0){
+                            this.photoParams.coffeePhoto ="http://localhost:9000/img/coffee/" + res.data.fileName + res.data.extendedName;
+                            axios({
+                                method:"POST",
+                                url:"http://localhost:9000/coffee/updateCoffee",
+                                data:JSON.stringify(this.photoParams),
+                                headers: {
+                                    "Content-Type":"application/json"
+                                }
+                            }).then(res => {
+                                if (res.data.code === 0){
+                                    this.selectCoffee();
+                                    $(".bs-example-modal-sm").modal("hide")//关闭模态框
+                                }
+                            }).catch(res => {
+                                console.log(res);
+                            })
+                        }
+                    }).catch(res => {
+                        console.log(res);
+                    })
+                }
+
+            },
+
+            //咖啡信息
+            coffeeInfo:function(data){
+              this.updateParams = data;
+            },
+
+            //修改咖啡信息
+            updateCoffeeInfo:function () {
+                //获取验证状态
+                var flag = $('#coffeeInfoForm').parsley().isValid();
+                if(flag){
+                    axios({
+                        method:"POST",
+                        url:"http://localhost:9000/coffee/updateCoffee",
+                        data:JSON.stringify(this.updateParams),
+                        headers: {
+                            "Content-Type":"application/json"
+                        }
+                    }).then(res => {
+                        console.log(res);
+                        this.selectCoffee();
+                    }).catch(res => {
+                        console.log(res);
+                    })
+                }else {
+                    return false;
+                }
+            }
+        }
     })
 </script>
 </body>

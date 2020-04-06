@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>咖啡后台-用户查询</title>
+    <title>咖啡后台-员工查询</title>
     <meta content="Admin Dashboard" name="description"/>
     <meta content="Themesbrand" name="author"/>
     <link rel="shortcut icon" href="../assets/images/favicon.ico">
@@ -39,7 +39,7 @@
                     <button class="button-menu-mobile open-left waves-effect">
                         <i class="mdi mdi-menu"></i>
                     </button>
-                    <span style="font-size: 18px;margin-left: 5px;">用户查询</span>
+                    <span style="font-size: 18px;margin-left: 5px;">员工查询</span>
                 </li>
             </ul>
 
@@ -72,7 +72,7 @@
                                             <div class="col-sm-4 col-md-2">
                                                 <div class="dataTables_filter">
                                                     <label>
-                                                        姓名:<input v-model="params.userName" type="text" class="form-control form-control-sm">
+                                                        姓名:<input v-model="params.employeesName" type="text" class="form-control form-control-sm">
                                                     </label>
                                                 </div>
                                             </div>
@@ -80,7 +80,7 @@
                                             <div class="col-sm-4 col-md-2">
                                                 <div class="dataTables_filter">
                                                     <label>
-                                                        手机号:<input v-model="params.userPhone" type="text" class="form-control form-control-sm">
+                                                        手机号:<input v-model="params.employeesPhone" type="text" class="form-control form-control-sm">
                                                     </label>
                                                 </div>
                                             </div>
@@ -88,7 +88,7 @@
                                             <div class="col-sm-4 col-md-2">
                                                 <div class="dataTables_length" >
                                                     <label>
-                                                        <select v-model="params.userStatus" class="custom-select custom-select-md form-control form-control-sm" style="margin-top: 17px">
+                                                        <select v-model="params.employeesStatus" class="custom-select custom-select-md form-control form-control-sm" style="margin-top: 17px">
                                                             <option value="-1">选择状态</option>
                                                             <option value="0">启用</option>
                                                             <option value="1">禁用</option>
@@ -110,7 +110,7 @@
                                             </div>
 
                                             <div class="col-sm-2 col-md-1">
-                                                <button @click="selectUsers()" type="button" class="btn btn-info waves-effect waves-light" style="margin-top: 17px">查询</button>
+                                                <button @click="selectEmp()" type="button" class="btn btn-info waves-effect waves-light" style="margin-top: 17px">查询</button>
                                             </div>
 
                                         </div>
@@ -119,30 +119,36 @@
                                                 <table class="table " style="border-collapse: collapse; border-spacing: 0px; width: 100%;">
                                                     <thead>
                                                         <tr role="row">
-                                                            <th>头像</th>
                                                             <th>姓名</th>
-                                                            <th>手机号</th>
+                                                            <th>年龄</th>
+                                                            <th>职位</th>
                                                             <th>性别</th>
-                                                            <th>出生日期</th>
-                                                            <th>会员</th>
+                                                            <th>工资</th>
+                                                            <th>业绩</th>
                                                             <th>状态</th>
+                                                            <th>电话</th>
+                                                            <th>身份证号</th>
                                                             <th>操作</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="userTbody">
                                                         <tr v-for="(data,index) in dataList">
-                                                            <td><img v-bind:src="data.userHphoto" class="thumb-md"></td>
-                                                            <td>{{data.userName}}</td>
-                                                            <td>{{data.userPhone}}</td>
-                                                            <td>{{data.userSex == 0? '男' : '女'}}</td>
-                                                            <td>{{data.userBirthday}}</td>
-                                                            <td>{{data.vip == 0 ? '否' : '是'}}</td>
-                                                            <td>{{data.userStatus == 0 ? '启用' : '禁用'}}</td>
+                                                            <td>{{data.employeesName}}</td>
+                                                            <td>{{data.employeesAge}}</td>
+                                                            <td>{{data.employeesJob}}</td>
+                                                            <td v-if="data.employeesSex == 0 ">男</td>
+                                                            <td v-else>女</td>
+                                                            <td>{{data.employeesSalary}}</td>
+                                                            <td>{{data.employeesResult}}</td>
+                                                            <td v-if="data.employeesStatus == 0 ">启用</td>
+                                                            <td v-else>禁用</td>
+                                                            <td>{{data.employeesPhone}}</td>
+                                                            <td>{{data.employeesNumber}}</td>
                                                             <td>
-                                                                <a @click="updateUser(index)" href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+                                                                <a @click="updateEmp(index)" href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
                                                                     <i class="mdi mdi-pencil font-18"></i>
                                                                 </a>
-                                                                <a @click="deleteUser(data.userId)" href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+                                                                <a @click="deleteEmp(data.employeesId)" href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
                                                                     <i class="mdi mdi-close font-18"></i>
                                                                 </a>
                                                             </td>
@@ -166,7 +172,7 @@
         </div>
         <!-- 页面主体内容结束 -->
         <footer class="footer">
-			© 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i class="mdi mdi-heart text-danger"></i> by 张正华.</span>
+			© 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i class="mdi mdi-heart text-danger"></i> by 蔬菜百科</span>
         </footer>
     </div>
 
@@ -197,9 +203,9 @@
         el:"#content",
         data:{
             params: {
-                userName:null,
-                userPhone:null,
-                userStatus:-1,
+                employeesName:null,
+                employeesPhone:null,
+                employeesStatus:-1,
                 pageSize:10,
                 currentPage:1, //当前页
                 pages:1
@@ -215,21 +221,21 @@
                 totalPages: this.params.pages, // 总页数
                 onPageClicked:function(event, originalEvent, type,page){
                     vm.params.currentPage=page;
-                    vm.selectUsers();
+                    vm.selectEmp();
                 },
                 onPageChanged:function(event, oldPage, newPage){
                     vm.params.currentPage=newPage;
-                    vm.selectUsers();
+                    vm.selectEmp();
                 }
             };
             $("#page").bootstrapPaginator(options);
 
-            this.selectUsers();
+            this.selectEmp();
         },
         methods:{
             //查询角色信息
-            selectUsers:function () {
-                var url = "http://localhost:9000/users/selectUser";
+            selectEmp:function () {
+                var url = "http://localhost:9000/employees/selectEmployees";
                 $.get(url,this.params,function (data) {
                    if (data.code === 0){
                        vm.dataList = data.dataList;
@@ -244,21 +250,21 @@
             },
 
             //编辑角色
-            updateUser:function(index){
+            updateEmp:function(index){
                 //把当前用户信息放入缓存
-                window.sessionStorage.setItem("userData",JSON.stringify(vm.dataList[index]));
-                window.location.href="userInsert.html";
+                window.sessionStorage.setItem("empData",JSON.stringify(vm.dataList[index]));
+                window.location.href="employeesInsert.html";
             },
 
             //删除角色
-            deleteUser:function (id) {
+            deleteEmp:function (id) {
                 var flag = confirm("确定删除这条数据吗?");
                 if (flag){
-                    var url = "http://localhost:9000/users/deleteUser?userId="+id;
+                    var url = "http://localhost:9000/employees/deleteEmployees?employeesId="+id;
                     $.post(url,null,function (data) {
                         if (data.code === 0){
                             alert(data.msg);
-                            vm.selectUsers();
+                            vm.selectEmp();
                         }else {
                             alert(data.msg);
                         }

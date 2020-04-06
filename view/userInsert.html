@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Veltrix - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>咖啡后台-用户录入</title>
     <meta content="Admin Dashboard" name="description"/>
     <meta content="Themesbrand" name="author"/>
     <link rel="shortcut icon" href="../assets/images/favicon.ico">
@@ -120,17 +120,6 @@
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label">权限</label>
-                                                                <select v-model="params.jdictionId" class="form-control" name="jdictionId">
-                                                                    <option value="null">请选择权限</option>
-                                                                    <option value="0">销售员</option>
-                                                                    <option value="1">普通用户</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="control-label">状态</label>
@@ -438,6 +427,9 @@
                         success:function (data) {
                             if (data.code == 0){
                                 alert(data.msg);
+                                //删除缓存数据
+                                window.sessionStorage.removeItem("userData");
+                                window.location.href = "userSelect.html";
                             }else {
                                 alert(data.msg);
                             }
@@ -478,6 +470,9 @@
                                            success:function (data) {
                                                if (data.code === 0){
                                                    alert(data.msg);
+                                                   //删除缓存数据
+                                                   window.sessionStorage.removeItem("userData");
+                                                   window.location.href = "userSelect.html";
                                                }else {
                                                    alert(data.msg);
                                                }

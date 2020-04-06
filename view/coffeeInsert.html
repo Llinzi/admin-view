@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Veltrix - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>咖啡管理后台-咖啡录入</title>
     <meta content="Admin Dashboard" name="description"/>
     <meta content="Themesbrand" name="author"/>
     <link rel="shortcut icon" href="../assets/images/favicon.ico">
@@ -14,6 +14,7 @@
     <link href="../assets/css/metisMenu.min.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/upload-img.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -59,7 +60,7 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-    <div class="content-page">
+    <div class="content-page" id="content">
         <!-- 页面主体内容开始 -->
         <div class="content">
             <div class="container-fluid">
@@ -67,129 +68,114 @@
                 <div class="content">
                     <div class="container-fluid">
                         <div class="page-title-box">
-
+                            <span>请填写新增咖啡的相关信息</span>
                         </div>
-                        <!-- end page-title -->
-
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form>
+                                        <form id="coffeeInfoForm">
                                             <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="productname">Product Name</label>
-                                                        <input id="productname" name="productname" type="text"
-                                                               class="form-control">
+                                                <div class="col-lg-3">
+                                                    <div class="upload-img-column">
+                                                        <div class="upload-wrap">
+                                                            <div class="box" style="width: 200px;height: 200px">
+                                                                <label class="p dotted">
+                                                                    <input type="file" accept="image/jpg,image/jpeg,image/png" name="photo" @change="onChooseImage($event)" />
+                                                                    <img class="coffeeImg" src="../assets/images/jiahao.png" alt="">
+                                                                </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="manufacturername">Manufacturer Name</label>
-                                                        <input id="manufacturername" name="manufacturername" type="text"
-                                                               class="form-control">
+                                                </div>
+                                                <div class="col-lg-9">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <label>咖啡名称</label>
+                                                                <input v-model="addParams.coffeeName" type="text" class="form-control" required placeholder="此值是必需的..."/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>价格(元)</label>
+                                                                <input v-model="addParams.coffeePrices" type="text" class="form-control" data-parsley-type="number" required placeholder="请填写数字"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>折扣价(元)</label>
+                                                                <input v-model="addParams.coffeeDiscount" type="text" class="form-control" data-parsley-type="number" placeholder="填写数字"/>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-6">
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-3">
                                                     <div class="form-group">
-                                                        <label for="productdesc">Product Description</label>
-                                                        <textarea class="form-control" id="productdesc"
-                                                                  rows="5"></textarea>
+                                                        <label>状态</label>
+                                                        <select v-model="addParams.coffeeStatus" class="form-control">
+                                                            <option value="0">上架</option>
+                                                            <option value="1">下架</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="form-group">
+                                                        <label>咖啡级别</label>
+                                                        <select v-model="addParams.coffeeLevel" class="form-control">
+                                                            <option value="0">上架</option>
+                                                            <option value="1">下架</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="form-group">
+                                                        <label>是否新品</label>
+                                                        <select v-model="addParams.coffeeIsNew" class="form-control">
+                                                            <option value="0">是</option>
+                                                            <option value="1">否</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="form-group">
+                                                        <label>是否热卖</label>
+                                                        <select v-model="addParams.coffeeIsHot" class="form-control">
+                                                            <option value="0">是</option>
+                                                            <option value="1">否</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="manufacturerbrand">Manufacturer Brand</label>
-                                                        <input id="manufacturerbrand" name="manufacturerbrand"
-                                                               type="text" class="form-control">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="price">Price</label>
-                                                        <input id="price" name="price" type="text" class="form-control">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label class="control-label">Category</label>
-                                                        <select class="form-control select2 select2-hidden-accessible"
-                                                                data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                                            <option data-select2-id="3">Select</option>
-                                                            <option value="AK">Alaska</option>
-                                                            <option value="HI">Hawaii</option>
-                                                        </select><span
-                                                            class="select2 select2-container select2-container--default"
-                                                            dir="ltr" data-select2-id="2" style="width: 574.6px;"><span
-                                                            class="selection"><span
-                                                            class="select2-selection select2-selection--single"
-                                                            role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                            tabindex="0" aria-labelledby="select2-5o2j-container"><span
-                                                            class="select2-selection__rendered"
-                                                            id="select2-5o2j-container" role="textbox"
-                                                            aria-readonly="true" title="Select">Select</span><span
-                                                            class="select2-selection__arrow" role="presentation"><b
-                                                            role="presentation"></b></span></span></span><span
-                                                            class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label">Features</label>
-
-                                                        <select class="select2 form-control select2-multiple select2-hidden-accessible"
-                                                                multiple="" data-placeholder="Choose ..."
-                                                                data-select2-id="4" tabindex="-1" aria-hidden="true">
-                                                            <option value="AK">Alaska</option>
-                                                            <option value="HI">Hawaii</option>
-                                                            <option value="CA">California</option>
-                                                            <option value="NV">Nevada</option>
-                                                            <option value="OR">Oregon</option>
-                                                            <option value="WA">Washington</option>
-                                                        </select><span
-                                                            class="select2 select2-container select2-container--default"
-                                                            dir="ltr" data-select2-id="5" style="width: 574.6px;"><span
-                                                            class="selection"><span
-                                                            class="select2-selection select2-selection--multiple"
-                                                            role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                            tabindex="-1"><ul class="select2-selection__rendered"><li
-                                                            class="select2-search select2-search--inline"><input
-                                                            class="select2-search__field" type="search" tabindex="0"
-                                                            autocomplete="off" autocorrect="off" autocapitalize="none"
-                                                            spellcheck="false" role="textbox" aria-autocomplete="list"
-                                                            placeholder=""
-                                                            style="width: 0.75em;"></li></ul></span></span><span
-                                                            class="dropdown-wrapper" aria-hidden="true"></span></span>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>Product Image</label> <br>
-                                                        <img src="../assets/images/users/user-1.jpg" alt="product img"
-                                                             class="img-fluid rounded" style="max-width: 200px;">
-                                                        <br>
-                                                        <button type="file"
-                                                                class="btn btn-info mt-2 waves-effect waves-light">
-                                                            Change Image
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                            <div class="form-group">
+                                                <label>咖啡简介</label>
+                                                <textarea v-model="addParams.coffeeBrief" class="form-control" rows="2" required placeholder="此值是必需的..."></textarea>
                                             </div>
 
-                                            <button type="submit" class="btn btn-success mr-1 waves-effect waves-light">
-                                                Save Changes
-                                            </button>
-                                            <button type="submit" class="btn btn-secondary waves-effect">Cancel</button>
+                                            <div class="form-group">
+                                                <label>咖啡详情</label>
+                                                <textarea v-model="addParams.coffeeDetails" class="form-control" rows="3" required placeholder="此值是必需的..."></textarea>
+                                            </div>
+
+                                            <div class="form-group mb-0">
+                                                <div>
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light mr-1" @click="updateCoffeeInfo()">保存</button>
+                                                    <button type="reset" class="btn btn-secondary waves-effect">重置</button>
+                                                </div>
+                                            </div>
                                         </form>
 
                                     </div>
                                 </div>
-
-                                <div class="card">
-                                </div>
                             </div>
                         </div>
-                        <!-- end row -->
 
                     </div>
                     <!-- container-fluid -->
@@ -201,7 +187,7 @@
         <!-- 页面主体内容结束 -->
         <footer class="footer">
             © 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i
-                class="mdi mdi-heart text-danger"></i> by 张正华.</span>
+                class="mdi mdi-heart text-danger"></i> by 蔬菜百科</span>
         </footer>
 
     </div>
@@ -215,16 +201,51 @@
 
 <!-- jQuery  -->
 <script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/vue.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/metisMenu.min.js"></script>
 <script src="../assets/js/jquery.slimscroll.js"></script>
 <script src="../assets/js/waves.min.js"></script>
-
+<script src="../assets/js/parsley.min.js"></script>
 <!-- App js -->
 <!--<script src="../assets/js/app.js"></script>-->
 <script>
     $(function () {
         $("#leftMenu").load("leftMenu.html");
+    })
+</script>
+<script>
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            addParams:{
+
+            },
+            file:null,
+        },
+
+        mounted:function () {
+
+        },
+
+        methods:{
+            //选择图片
+            onChooseImage:function (event) {
+                //$(".coffeeImg").empty();//清空图片
+                //使用FileReader对文件对象进行操作
+                var fileReader = new FileReader();
+                //将读取到的文件编码成Data URL
+                this.file = event.target.files[0];
+                fileReader.readAsDataURL(this.file);
+                //读取完成时
+                fileReader.onload = function () {
+                    //文件输出的内容
+                    var resultSrc = fileReader.result;
+                    $(".coffeeImg").attr("src",resultSrc);
+                }
+            },
+        }
+
     })
 </script>
 </body>
