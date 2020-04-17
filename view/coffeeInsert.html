@@ -81,8 +81,10 @@
                                                         <div class="upload-wrap">
                                                             <div class="box" style="width: 200px;height: 200px">
                                                                 <label class="p dotted">
-                                                                    <input type="file" accept="image/jpg,image/jpeg,image/png" name="photo" @change="onChooseImage($event)" />
-                                                                    <img class="coffeeImg" src="../assets/images/jiahao.png" alt="">
+                                                                    <div class="form-group">
+                                                                        <input type="file" accept="image/jpg,image/jpeg,image/png" name="photo" @change="onChooseImage($event)" v-model="addParams.coffeePhoto"/>
+                                                                        <img class="coffeeImg" src="../assets/images/jiahao.png" alt="">
+                                                                    </div>
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -166,7 +168,7 @@
 
                                             <div class="form-group mb-0">
                                                 <div>
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light mr-1" @click="updateCoffeeInfo()">保存</button>
+                                                    <button type="button" class="btn btn-primary waves-effect waves-light mr-1" @click="addInsert()">保存</button>
                                                     <button type="reset" class="btn btn-secondary waves-effect">重置</button>
                                                 </div>
                                             </div>
@@ -186,8 +188,7 @@
         </div>
         <!-- 页面主体内容结束 -->
         <footer class="footer">
-            © 2020 毕业设计 <span class="d-none d-sm-inline-block"> - <i
-                class="mdi mdi-heart text-danger"></i> by 蔬菜百科</span>
+            © 2020 毕业设计 <span class="d-none d-sm-inline-block"> - 咖啡销售管理系统.</span>
         </footer>
 
     </div>
@@ -206,6 +207,7 @@
 <script src="../assets/js/metisMenu.min.js"></script>
 <script src="../assets/js/jquery.slimscroll.js"></script>
 <script src="../assets/js/waves.min.js"></script>
+<script src="../assets/js/axios.min.js"></script>
 <script src="../assets/js/parsley.min.js"></script>
 <!-- App js -->
 <!--<script src="../assets/js/app.js"></script>-->
@@ -219,7 +221,7 @@
         el:"#content",
         data:{
             addParams:{
-
+                
             },
             file:null,
         },
@@ -244,6 +246,51 @@
                     $(".coffeeImg").attr("src",resultSrc);
                 }
             },
+
+            //咖啡添加
+            addInsert:function () {
+                var flag = $('#coffeeInfoForm').parsley().isValid();
+                if (flag && vm.file != null ){
+                    //上传咖啡图片
+                    var formDate = new FormData();
+                    formDate.append('photo',this.file);
+                    formDate.append('type','coffee');
+                    axios({
+                        method: "POST",
+                        url:"http://localhost:9000/upload/uploadPhoto",
+                        data: formDate,
+                        headers:{
+                            "Content-Type": "multipart/form-data"
+                        },
+
+                    }).then(res => {
+                        if (res.data.code === 0){
+                            vm.addParams.coffeePhoto ="http://localhost:9000/img/coffee/" + res.data.fileName + res.data.extendedName;
+                            axios({
+                                method:"POST",
+                                url:"http://localhost:9000/coffee/addCoffee",
+                                data:JSON.stringify(vm.addParams),
+                                headers: {
+                                    "Content-Type":"application/json"
+                                }
+                            }).then(res => {
+                               if (res.data.code === 0){
+                                    alert("添加成功!");
+                                    window.location.href = "coffeeInsert.html";
+                               }
+                            }).catch(res => {
+                                console.log(res);
+                            })
+                        }
+                    }).catch(res => {
+                        console.log(res);
+                    })
+                }else {
+                    alert("验证失败");
+                    return false;
+                }
+            }
+            
         }
 
     })

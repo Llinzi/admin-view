@@ -62,79 +62,136 @@
     <div class="content-page">
         <!-- 页面主体内容开始 -->
         <div class="content">
-            <!-- 表单开始 -->
-            <!-- <form class="repeater" enctype="multipart/form-data" style="margin-left: 15px;">
-                <div data-repeater-list="group-a">
-                    <div data-repeater-item="" class="row">
-                        <div class="form-group col-lg-2">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="group-a[0][untyped-input]" class="form-control">
-                        </div>
-
-                        <div class="form-group col-lg-2">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control">
-                        </div>
-
-                        <div class="form-group col-lg-2">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control">
-                        </div>
-
-                        <div class="col-lg-2 align-self-center">
-                            <input data-repeater-delete="" type="button" class="btn btn-primary btn-block" value="一建查询">
-                        </div>
-                    </div>
-
-                </div>
-            </form> -->
-            <!-- 表单结束 -->
             <div class="card">
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table mb-0">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="datatable_length"><label>Show <select name="datatable_length" aria-controls="datatable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline collapsed" style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid" aria-describedby="datatable_info">
+                        <thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 136px;" aria-sort="ascending" aria-label="Username: activate to sort column descending">Username</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 195px;" aria-label="Email: activate to sort column ascending">Email</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 99px;" aria-label="Phone Number: activate to sort column ascending">Phone Number</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 307px;" aria-label="Address: activate to sort column ascending">Address</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 98px;" aria-label="Wallet Balance: activate to sort column ascending">Wallet Balance</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Joining Date: activate to sort column ascending">Joining Date</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Action: activate to sort column ascending">Action</th></tr>
+                        </thead>
+                        <tbody>
+                        <tr role="row" class="odd">
+                            <td tabindex="0" class="sorting_1" style="">Alice B. Bevill</td>
+                            <td>JamesMHenry@dayrep.com</td>
+                            <td>732-533-0201</td>
+                            <td>2231 Webster Street
+                                Newark, NJ 07102</td>
+                            <td>$4,358</td>
+                            <td style="display: none;">June 16, 2019</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="even">
+                            <td class="sorting_1" tabindex="0" style="">Betty M. Housley</td>
+                            <td>BettyMHousley@armyspy.com</td>
+                            <td>435-261-6681</td>
+                            <td>424 North Street
+                                Salt Lake City, UT 84104</td>
+                            <td>$11,751</td>
+                            <td style="display: none;">Jun 20, 2018</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="odd">
+                            <td class="sorting_1" tabindex="0" style="">Betty M. Litwin</td>
+                            <td>BettyMLitwin@rhyta.com</td>
+                            <td>903-457-6202</td>
+                            <td>2317 Florence Street
+                                Greenville, TX 75401</td>
+                            <td>$956</td>
+                            <td style="display: none;">March 05, 2018</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="even">
+                            <td tabindex="0" class="sorting_1">Chris T. Parks</td>
+                            <td>ChrisTParks@rhyta.com</td>
+                            <td>407-855-7376</td>
+                            <td>1521 McDonald Avenue
+                                Orlando, FL 32809</td>
+                            <td>$6,541</td>
+                            <td style="display: none;">March 20, 2019</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="odd">
+                            <td tabindex="0" class="sorting_1">Edward E. White</td>
+                            <td>EdwardEWhite@armyspy.com</td>
+                            <td>850-561-1648</td>
+                            <td>1246 Drainer Avenue
+                                Tallahassee, FL 32301</td>
+                            <td>$1,854</td>
+                            <td style="display: none;">June 22, 2019</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="even">
+                            <td class="sorting_1" tabindex="0">Essie A. Nixon</td>
+                            <td>EssieANixon@dayrep.com</td>
+                            <td>269-639-7228</td>
+                            <td>2259 Goff Avenue
+                                South Haven, MI 49090</td>
+                            <td>$4,456</td>
+                            <td style="display: none;">June 22, 2018</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="odd">
+                            <td tabindex="0" class="sorting_1">Fabian M. Berryhill</td>
+                            <td>FabianMBerryhill@teleworm.us</td>
+                            <td>518-281-2680</td>
+                            <td>
+                                North Greenbush, NY 12144</td>
+                            <td>$2,510</td>
+                            <td style="display: none;">June 20, 2019</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="even">
+                            <td class="sorting_1" tabindex="0">Geneva J. Silverstein</td>
+                            <td>GenevaJSilverstein@dayrep.com</td>
+                            <td>507-406-9467</td>
+                            <td>3421 Pritchard Court
+                                Owatonna, MN 55060</td>
+                            <td>$5,943</td>
+                            <td style="display: none;">October 19, 2018</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="odd">
+                            <td tabindex="0" class="sorting_1">Herbert C. Patton</td>
+                            <td>herbart@admiria.com</td>
+                            <td>801-388-6508</td>
+                            <td>2470 Grove Street
+                                Bethpage, NY 11714</td>
+                            <td>$5,412</td>
+                            <td style="display: none;">July 20, 2019</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr><tr role="row" class="even">
+                            <td class="sorting_1" tabindex="0">James M. Henry</td>
+                            <td>JamesMHenry@dayrep.com</td>
+                            <td>951-314-6794</td>
+                            <td>3049 Denver Avenue
+                                City Of Commerce, CA 90040</td>
+                            <td>$2,490</td>
+                            <td style="display: none;">January 17, 2019</td>
+                            <td style="display: none;">
+                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-18"></i></a>
+                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-18"></i></a>
+                            </td>
+                        </tr></tbody>
+                    </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 21 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="datatable_previous"><a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="datatable_next"><a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+
                 </div>
             </div>
         </div>
