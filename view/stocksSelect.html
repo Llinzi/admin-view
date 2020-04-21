@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>咖啡管理后台-库存查询</title>
+    <meta content="Admin Dashboard" name="description"/>
+    <meta content="Themesbrand" name="author"/>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/metisMenu.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a href="index.html" class="logo">
+						<span>
+							<img src="../assets/images/logo-light.png" alt="" height="18">
+						</span>
+                <i>
+                    <img src="../assets/images/logo-sm.png" alt="" height="22">
+                </i>
+            </a>
+        </div>
+        <nav class="navbar-custom">
+            <ul class="list-inline menu-left mb-0">
+                <li class="float-left">
+                    <button class="button-menu-mobile open-left waves-effect">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+                    <span style="font-size: 18px;margin-left: 5px;">库存查询</span>
+                </li>
+            </ul>
+
+
+        </nav>
+    </div>
+    <!-- Top Bar End -->
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div id="leftMenu">
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page" id="content">
+        <!-- 页面主体内容开始 -->
+        <div class="content">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <div v-show="stocksShow" id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="row">
+
+                                <div class="col-sm-3 col-md-2">
+                                    <div class="dataTables_filter">
+                                        <label>
+                                            咖啡编号:<input v-model="params.coffeeId" type="text" class="form-control form-control-sm">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-2">
+                                    <div class="dataTables_filter">
+                                        <label>
+                                            咖啡名称:<input v-model="params.coffeeName" type="text" class="form-control form-control-sm">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2">
+                                    <div class="dataTables_length" >
+                                        <label>
+                                            <select v-model="params.pageSize" class="custom-select custom-select-md form-control form-control-sm" style="margin-top: 17px">
+                                                <option value="10">10条/页</option>
+                                                <option value="25">25条/页</option>
+                                                <option value="40">40条/页</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2 col-md-1">
+                                    <button @click="selectStocks()" type="button" class="btn btn-info waves-effect waves-light" style="margin-top: 17px">查询</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="datatable"
+                                           class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                                           style="border-collapse: collapse; border-spacing: 0px; width: 100%;"
+                                           role="grid" aria-describedby="datatable_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 71px;" aria-sort="ascending"
+                                                aria-label="Image: activate to sort column descending">咖啡编号
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 118px;"
+                                                aria-label="Added Date: activate to sort column ascending">咖啡名称
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 118px;"
+                                                aria-label="Added Date: activate to sort column ascending">库存数量
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 86px;"
+                                                aria-label="Amount: activate to sort column ascending">库存更新时间
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 121px;"
+                                                aria-label="No. of Units: activate to sort column ascending">备注
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 74px;"
+                                                aria-label="Action: activate to sort column ascending">操作
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tr role="row" class="odd" v-for="(data,index) in dataList">
+                                            <td>{{data.coffeeId}}</td>
+                                            <td>{{data.coffeeName}}</td>
+                                            <td>{{data.stockCount}}</td>
+                                            <td>{{((data.updateTime).replace(/T/,"—")).substring(0,19)}}</td>
+                                            <td>{{data.remark}}</td>
+                                            <td>
+                                                <a @click="selectStorage(data.coffeeId)" href="javascript:void(0);" class="btn-primary" data-toggle="modal" data-target="#orderMoal">
+                                                    查看出入库详情
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <ul id="page">
+
+                                </ul>
+                            </a>
+                        </div>
+
+                        <!--咖啡出入库详情-->
+                        <div v-show="!stocksShow" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                                           style="border-collapse: collapse; border-spacing: 0px; width: 100%;"
+                                           role="grid" aria-describedby="datatable_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 71px;" aria-sort="ascending"
+                                                aria-label="Image: activate to sort column descending">咖啡编号
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 118px;"
+                                                aria-label="Added Date: activate to sort column ascending">出入库数量
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 86px;"
+                                                aria-label="Amount: activate to sort column ascending">类型
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 121px;"
+                                                aria-label="No. of Units: activate to sort column ascending">出入库时间
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 74px;"
+                                                aria-label="Action: activate to sort column ascending">操作
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tr role="row" class="odd" v-for="(data,index) in storagelList">
+                                            <td>{{data.coffeeId}}</td>
+                                            <td>{{data.storageNum}}</td>
+                                            <td v-if="data.storageType == 0">入库</td>
+                                            <td v-else="">出库</td>
+                                            <td>{{((data.createTime).replace(/T/,"—")).substring(0,19)}}</td>
+                                            <td>
+                                                <a @click="returnStocks()" href="javascript:void(0);" class="btn-primary" data-toggle="modal" data-target="#orderMoal">
+                                                    返回
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr v-show="noCoffeeShow">
+                                            <td>该咖啡没有记录!</td>
+                                            <td>
+                                                <a @click="returnStocks()" href="javascript:void(0);" class="btn-primary" data-toggle="modal" data-target="#orderMoal">
+                                                    返回
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <a v-show="!noCoffeeShow" href="#">
+                                <ul id="page2">
+
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 页面主体内容结束 -->
+
+
+        <footer class="footer">
+            © 2020 毕业设计 <span class="d-none d-sm-inline-block"> - 咖啡销售管理系统.</span>
+        </footer>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+
+<!-- jQuery  -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/vue.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/metisMenu.min.js"></script>
+<script src="../assets/js/jquery.slimscroll.js"></script>
+<script src="../assets/js/waves.min.js"></script>
+<script src="../assets/js/axios.min.js"></script>
+<script src="../assets/js/bootstrap-paginator.js"></script>
+
+
+
+<!-- App js -->
+<!--<script src="../assets/js/app.js"></script>-->
+<script>
+    $(function () {
+        $("#leftMenu").load("leftMenu.html");
+
+    })
+</script>
+<script>
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            params:{
+                coffeeId:null,
+                coffeeName:'',
+                pageSize:10,
+                currentPage:1,
+                pages:null,
+            },
+            storageParams:{
+                coffeeId:null,
+                pageSize:10,
+                currentPage:1,
+                pages:null,
+            },
+            stocksShow:true,
+            noCoffeeShow:false,
+            dataList:[],
+            storagelList:[],
+        },
+        mounted:function () {
+            //初始化分页模板
+            var options = {
+                bootstrapMajorVersion: 4,
+                currentPage: this.params.currentPage, // 当前页数
+                numberOfPages: 5, // 显示按钮的数量
+                totalPages: this.params.pages, // 总页数
+                onPageClicked:function(event, originalEvent, type,page){
+                        vm.params.currentPage=page;
+                        vm.selectStocks();
+                },
+                onPageChanged:function(event, oldPage, newPage){
+                        vm.params.currentPage=newPage;
+                        vm.selectStocks();
+                }
+            };
+            $("#page").bootstrapPaginator(options);
+
+            var options2 = {
+                bootstrapMajorVersion: 4,
+                currentPage: this.storageParams.currentPage, // 当前页数
+                numberOfPages: 5, // 显示按钮的数量
+                totalPages: this.storageParams.pages, // 总页数
+                onPageClicked:function(event, originalEvent, type,page){
+                    vm.storageParams.currentPage=page;
+                    vm.selectStorage(vm.storageParams.coffeeId);
+                },
+                onPageChanged:function(event, oldPage, newPage){
+                    vm.storageParams.currentPage=newPage;
+                    vm.selectStorage(vm.storageParams.coffeeId);
+                }
+            };
+            $("#page2").bootstrapPaginator(options2);
+
+            this.selectStocks();
+        },
+        methods:{
+
+            //查询库存
+            selectStocks:function () {
+                axios({
+                    method:'GET',
+                    url:'http://localhost:9000/stocks/selectStocks',
+                    params: this.params,
+                }).then(res => {
+                    if (res.data.code === 0){
+                        vm.dataList = res.data.dataList;
+                        vm.params.pages = res.data.pages;//总页数
+                        vm.params.currentPage = res.data.pageNum //第几页
+                        $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
+                    }
+                }).catch(res => {
+                    console.log(res);
+                })
+            },
+
+            //查看出入库详情
+            selectStorage:function (coffeeId) {
+                this.stocksShow = false;
+                this.storageParams.coffeeId = coffeeId;
+                axios({
+                    method:'GET',
+                    url:'http://localhost:9000/stocks/selectStorage',
+                    params:this.storageParams,
+                }).then(res => {
+                    if (res.data.code === 0){
+                        vm.storagelList = res.data.dataList;
+                        vm.storageParams.pages = res.data.pages;//总页数
+                        vm.storageParams.currentPage = res.data.pageNum //第几页
+                        $("#page2").bootstrapPaginator('setOptions',{currentPage:vm.storageParams.currentPage,totalPages:vm.storageParams.pages});
+                    }else {
+                        vm.noCoffeeShow = true;
+                    }
+                }).catch(res => {
+                    console.log(res);
+                })
+            },
+
+            returnStocks:function () {
+                this.noCoffeeShow = false;
+                this.stocksShow = true;
+                this.storagelList = [];
+                this.storageParams.currentPage = 1;
+            }
+        }
+    });
+</script>
+</body>
+
+</html>

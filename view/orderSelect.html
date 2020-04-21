@@ -244,6 +244,13 @@
                                     </table>
                                 </div>
                             </div>
+                            <div style="width: 320px">
+                                <a href="#">
+                                    <ul id="page">
+
+                                    </ul>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -315,7 +322,7 @@
 <script src="../assets/js/jquery.slimscroll.js"></script>
 <script src="../assets/js/waves.min.js"></script>
 <script src="../assets/js/axios.min.js"></script>
-
+<script src="../assets/js/bootstrap-paginator.js"></script>
 <!-- Plugins js -->
 <script src="../assets/plugins/js/bootstrap-colorpicker.min.js"></script>
 <script src="../assets/plugins/js/bootstrap-datepicker.js"></script>
@@ -356,6 +363,25 @@
                 clearBtn: true,//清除按钮
                 format: "yyyy-mm-dd",//日期格式
             });
+
+            //初始化分页模板
+            var options = {
+                bootstrapMajorVersion: 4,
+                currentPage: this.params.currentPage, // 当前页数
+                numberOfPages: 5, // 显示按钮的数量
+                totalPages: this.params.pages, // 总页数
+                onPageClicked:function(event, originalEvent, type,page){
+                    vm.params.currentPage=page;
+                    vm.selectOrder();
+                },
+                onPageChanged:function(event, oldPage, newPage){
+                    vm.params.currentPage=newPage;
+                    vm.selectOrder();
+                }
+            };
+            $("#page").bootstrapPaginator(options);
+
+            this.selectOrder();
         },
         methods:{
 
@@ -372,8 +398,8 @@
 
             //查询满足条件的订单信息
             selectOrder:function () {
-                vm.params.startTime = $("#startTime").val();
-                vm.params.endTime = $("#endTime").val();
+                this.params.startTime = $("#startTime").val();
+                this.params.endTime = $("#endTime").val();
                 axios({
                     method:'GET',
                     url:'http://localhost:9000/orders/selectOrders',
@@ -381,6 +407,9 @@
                 }).then(res => {
                     if (res.data.code === 0){
                         vm.dataList = res.data.dataList;
+                        vm.params.pages = res.data.pages;//总页数
+                        vm.params.currentPage = res.data.pageNum //第几页
+                        $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
                     }
                 }).catch(res => {
                     console.log(res);
