@@ -17,245 +17,29 @@
     <link rel="stylesheet" href="assets/css/icomoon.css">
     <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
     <link rel="shortcut icon" href="assets/images/shortcut_logo.png">
+    <link href="../assets/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css">
   </head>
   <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
   <body>
     <div id="main">
       <header>
-        <div class="header-block d-flex align-items-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <div class="header-left d-flex flex-column flex-md-row align-items-center">
-                  <p class="d-flex align-items-center"><i class="fas fa-envelope"></i>info.deercreative@gmail.com</p>
-                  <p class="d-flex align-items-center"><i class="fas fa-phone"></i>+65 11.188.888</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="header-right d-flex flex-column flex-md-row justify-content-md-end justify-content-center align-items-center">
-                  <div class="social-link d-flex"><a href=""><i class="fab fa-facebook-f"> </i></a><a href=""><i class="fab fa-twitter"></i></a><a href=""><i class="fab fa-invision"> </i></a><a href=""><i class="fab fa-pinterest-p"> </i></a></div>
-                  <div class="language">
-                    <div class="selected-language"><img src="assets/images/homepage01/usa.jpg" alt="">English<i class="arrow_carrot-down"></i>
-                      <ul class="list-language">
-                        <li><img src="assets/images/homepage01/usa.jpg" alt="">English</li>
-                        <li><img src="assets/images/homepage01/usa.jpg" alt="">Spain</li>
-                        <li><img src="assets/images/homepage01/usa.jpg" alt="">Japan</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="login d-flex"><a href="login.html"><i class="fas fa-user"></i>Login</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <nav class="navigation">
           <div class="container">
             <div class="row no-gutters align-items-center">
               <div class="col-lg-2"><a class="logo" href="index.html"><img src="assets/images/logo_white.png" alt=""></a></div>
               <div class="col-lg-7">
-                <div class="navgition-menu d-flex align-items-center justify-content-start">
-                  <ul class="mb-0">
-                    <li class="toggleable"> <a class="active" href="index.html" style="color: #FFC74A;padding: 10px 0px;">首页</a></li>
-                    </li>
-                    <li class="toggleable"> <a class="menu-item" href="shop_grid+list_3col.html">店铺</a>
-                      <ul class="sub-menu shop d-flex">
-                        <div class="nav-column">
-                          <h2>店铺布局</h2>
-                          <li><a href="shop_grid+list_fullwidth.html">商店网格全宽</a></li>
-                          <li><a href="shop_grid+list_fullwidth.html">商店清单全角</a></li>
-                          <li><a href="shop_grid+list_3col.html">商店网格3列</a></li>
-                          <li><a href="shop_grid+list_3col.html">商店网格3行</a></li>
-                        </div>
-                        <div class="nav-column">
-                          <h2>店铺详情</h2>
-                          <li><a href="shop_detail_fullwidth.html">商店详细信息</a></li>
-                          <li><a href="shop_detail.html">商店详细信息侧栏</a></li>
-                        </div>
-                        <div class="nav-column">
-                          <h2>商店页面</h2>
-                          <li><a href="shop_checkout.html">查看</a></li>
-                          <li><a href="shop_order_complete.html">订单完成</a></li>
-                          <li><a href="shop_wishlist.html">愿望清单</a></li>
-                          <li><a href="shop_compare.html">比较</a></li>
-                          <li><a href="shop_cart.html">大车</a></li>
-                        </div>
-                      </ul>
-                    </li>
-                    <li class="toggleable"><a class="menu-item" href="blog_list_sidebar.html">博客</a>
-                      <ul class="sub-menu">
-                        <li><a href="blog_list_sidebar.html">博客列表侧栏</a></li>
-                        <li><a href="blog_grid_2col.html">Blog Grid2列</a></li>
-                        <li><a href="blog_grid_sidebar.html">网格边栏</a></li>
-                        <li><a href="blog_masonry.html">博客砌体</a></li>
-                        <li><a href="blog_grid_1col.html">Blog Grid 1列侧边栏</a></li>
-                        <li><a href="blog_detail_sidebar.html">博客详细信息侧栏</a></li>
-                      </ul>
-                    </li>
-                    <li class="toggleable"> <a class="menu-item" href="#">功能</a>
-                      <ul class="sub-menu">
-                        <li><a href="login.html">登录</a></li>
-                        <li><a href="register.html">注册</a></li>
-												<li><a href="user.html">个人信息</a></li>
-												<li><a href="edit.html">修改个人信息</a></li>
-                        <li><a href="faq.html">常用问题</a></li>
-                        <li><a href="coming_soon.html">快来了</a></li>
-                        <li><a href="contact_us.html">联系我们</a></li>
-                        <li><a href="404_error.html">404错误</a></li>
-                      </ul>
-                    </li>
-                    <li class="toggleable"><a class="menu-item" href="about_us.html">关于我们</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-12 col-lg-3">
-                <div class="nav-right_block">
-                  <div class="form website-search_coffee">
-                    <input class="round-input no-border" type="text" placeholder="你需要什么">
-                    <button class="normal-btn black"><i class="icon_search"></i></button>
-                  </div>
-                  <div class="product-function d-flex align-items-center justify-content-end">
-                    <div id="cart"><a class="function-icon icon_bag_alt" href=""><span>$150.00</span></a></div>
-                  </div>
-                </div>
+                <h1 class="title">山咔咔里咖啡</h1>
               </div>
             </div>
           </div>
         </nav>
-        <div id="mobile-menu">
-          <div class="container">
-            <div class="row">
-              <div class="col-3">
-                <div class="mobile-menu_block d-flex align-items-center"><a class="mobile-menu--control" href="#"><i class="fas fa-bars"></i></a>
-                  <div id="ogami-mobile-menu">
-                    <button class="no-round-btn" id="mobile-menu--closebtn">Close menu</button>
-                    <div class="mobile-menu_items">
-                      <ul class="mb-0 d-flex flex-column">
-                        <li class="toggleable"> <a class="menu-item active" href="index.html">Home</a><span class="sub-menu--expander"><i class="icon_plus"></i></span>
-                          <ul class="sub-menu">
-                            <li><a href="index.html">Homepage 1</a></li>
-                            <li><a href="homepage02.html">Homepage 2</a></li>
-                            <li><a href="homepage03.html">Homepage 3</a></li>
-                            <li><a href="homepage04.html">Homepage 4</a></li>
-                            <li><a href="homepage05.html">Homepage 5</a></li>
-                          </ul>
-                        </li>
-                        <li class="toggleable"><a class="menu-item" href="shop_grid+list_3col.html">Shop</a><span class="sub-menu--expander"><i class="icon_plus"></i></span>
-                          <ul class="sub-menu">
-                            <li><a href="shop_grid+list_fullwidth.html">Shop grid fullwidth</a></li>
-                            <li><a href="shop_grid+list_fullwidth.html">Shop list fullwidth</a></li>
-                            <li><a href="shop_grid+list_3col.html">shop grid 3 column</a></li>
-                            <li><a href="shop_grid+list_3col.html">shop list 3 column</a></li>
-                            <li><a href="shop_detail.html">shop detail</a></li>
-                            <li><a href="shop_detail_fullwidth.html">shop detail fullwidth</a></li>
-                            <li><a href="shop_checkout.html">checkout</a></li>
-                            <li><a href="shop_order_complete.html">order complete</a></li>
-                            <li><a href="shop_wishlist.html">wishlist</a></li>
-                            <li><a href="shop_compare.html">compare</a></li>
-                            <li><a href="shop_cart.html">cart</a></li>
-                          </ul>
-                        </li>
-                        <li class="toggleable"> <a class="menu-item" href="blog_list_sidebar.html">Blog</a><span class="sub-menu--expander"><i class="icon_plus"></i></span>
-                          <ul class="sub-menu">
-                            <li><a href="blog_list_sidebar.html">Blog List Sidebar</a></li>
-                            <li><a href="blog_grid_2col.html">Blog Grid 2 column</a></li>
-                            <li><a href="blog_grid_sidebar.html">Blog Grid sidebar</a></li>
-                            <li><a href="blog_masonry.html">Blog masonry</a></li>
-                            <li><a href="blog_grid_1col.html">Blog Grid 1 column sidebar</a></li>
-                            <li><a href="blog_detail_sidebar.html">Blog detail sidebar</a></li>
-                          </ul>
-                        </li>
-                        <li class="toggleable"><a class="menu-item" href="#">Pages</a><span class="sub-menu--expander"><i class="icon_plus"></i></span>
-                          <ul class="sub-menu">
-                            <li><a href="login.html">login</a></li>
-                            <li><a href="register.html">register</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="coming_soon.html">coming soon</a></li>
-                            <li><a href="about_us.html">about us</a></li>
-                            <li><a href="contact_us.html">contact us</a></li>
-                            <li><a href="404_error.html">404 error</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="mobile-login">
-                      <h2>My account</h2><a href="login.html">Login</a><a href="register.html">Register</a>
-                    </div>
-                    <div class="mobile-social"><a href=""><i class="fab fa-facebook-f"> </i></a><a href=""><i class="fab fa-twitter"></i></a><a href=""><i class="fab fa-invision"> </i></a><a href=""><i class="fab fa-pinterest-p"> </i></a></div>
-                  </div>
-                  <div class="ogamin-mobile-menu_bg"></div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"><a href=""><img src="assets/images/logo.png" alt=""></a></div>
-              </div>
-              <div class="col-3">
-                <div class="mobile-product_function d-flex align-items-center justify-content-end"><a class="function-icon icon_heart_alt" href="wishlist.html"></a><a class="function-icon icon_bag_alt" href="shop_cart.html"></a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="navigation-filter"> 
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
-                <div class="department-menu_block">
-                  <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>All departments<span><i class="arrow_carrot-down"></i></span></div>
-                  <div class="department-dropdown-menu">
-                    <ul>
-                      <li><a href="shop_grid+list_3col.html"> <i class="icon-1"></i>Fresh Meat</a></li>
-                      <li><a href="shop_grid+list_3col.html"> <i class="icon-2"></i>Vegetables</a></li>
-                      <li><a href="shop_grid+list_3col.html"> <i class="icon-3"></i>Fruit & Nut Gifts</a></li>
-                      <li><a href="shop_grid+list_3col.html"> <i class="icon-4"></i>Fresh Berries</a></li>
-                      <li><a href="shop_grid+list_3col.html"> <i class="icon-5"></i>Ocean Foods</a></li>
-                      <li><a href="shop_grid+list_3col.html"><i class="icon-6"></i>Butter & Eggs</a></li>
-                      <li><a href="shop_grid+list_3col.html"><i class="icon-7"></i>Fastfood</a></li>
-                      <li><a href="shop_grid+list_3col.html"> <i class="icon-8"></i>Fresh Onion</a></li>
-                      <li><a href="shop_grid+list_3col.html"> <i class="icon-9"></i>Papayaya & Crisps</a></li>
-                      <li><a href="shop_grid+list_3col.html"><i class="icon-10"></i>Oatmeal</a></li>
-                      <li><a href="shop_grid+list_3col.html"> <i class="icon-11"></i>Fresh Bananas</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
-                <div class="website-search">
-                  <div class="row no-gutters">
-                    <div class="col-0 col-md-0 col-lg-4 col-xl-3">
-                      <div class="filter-search">
-                        <div class="categories-select d-flex align-items-center justify-content-around"><span>All Categories</span><i class="arrow_carrot-down"></i></div>
-                        <div class="categories-select_box">
-                          <ul>
-                            <li>Fruit & Nut Gifts</li>
-                            <li>Fresh Berries</li>
-                            <li>Ocean Foods</li>
-                            <li>Butter & Eggs</li>
-                            <li>Ocean Foods</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-8 col-md-8 col-lg-5 col-xl-7">
-                      <div class="search-input">
-                        <input class="no-round-input no-border" type="text" placeholder="What do you need">
-                      </div>
-                    </div>
-                    <div class="col-4 col-md-4 col-lg-3 col-xl-2">
-                      <button class="no-round-btn">Search</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </header>
       <!-- End header-->
       <div class="ogami-breadcrumb">
         <div class="container">
           <ul>
-            <li> <a class="breadcrumb-link" href="index.html"> <i class="fas fa-home"></i>Home</a></li>
-            <li> <a class="breadcrumb-link active" href="#">Register</a></li>
+            <li> <a class="breadcrumb-link" href="index.html"> <i class="fas fa-home"></i>主页</a></li>
+            <li> <a class="breadcrumb-link active" href="#">注册</a></li>
           </ul>
         </div>
       </div>
@@ -264,16 +48,32 @@
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-6 mx-auto">
-              <h1 class="title">Register</h1>
-              <form>
-                <label for="user-name">Username or email address *</label>
-                <input class="no-round-input" id="user-name" type="text">
-                <label for="password">Password *</label>
-                <input class="no-round-input" id="password" type="text">
-                <label for="confirm">Comfirm password *</label>
-                <input class="no-round-input" id="confirm" type="text">
+              <h1 class="title">注册</h1>
+              <form id="regForm">
+                <div class="form-group">
+                <label>手机号*</label>
+                  <div class="row">
+                    <div class="col-md-8"><input v-model="paramsReg.userPhone" class="no-round-input" id="regPhone" name="userPhone" @change="changePhone()" type="text"></div>
+                    <div class="col-md-4">
+                      <button v-show="showCode" :class="myDisabled ? 'no-round-btn2':'no-round-btn'" :disabled="myDisabled" @click="getCode()">获取验证码</button>
+                      <span v-show="!showCode" class="no-round-btn2">{{count}}s后重发</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>验证码 *</label>
+                  <input class="no-round-input" id="regCode" name="code" type="text">
+                </div>
+                <div class="form-group">
+                  <label>密码 *</label>
+                  <input v-model="paramsReg.userPassword" class="no-round-input" name="userPassword" type="text">
+                </div>
+                <div class="form-group">
+                  <label>确认密码*</label>
+                  <input class="no-round-input" name="confirmPwd" type="text">
+                </div>
                 <div class="account-function">
-                  <button class="no-round-btn">Register</button><a class="create-account" href="login.html">Or login</a>
+                  <button class="no-round-btn" @click="userRegister()">注册</button><a class="create-account" href="login.html">返回登录</a>
                 </div>
               </form>
             </div>
@@ -359,6 +159,7 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="../assets/js/vue.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/jquery.easing.js"></script>
     <script src="assets/js/jquery.scrollUp.min.js"></script>
@@ -368,5 +169,199 @@
     <script src="assets/js/numscroller-1.0.js"></script>
     <script src="assets/js/vanilla-tilt.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="../assets/js/bootstrapValidator.min.js"></script>
   </body>
+<script>
+  var vm = new Vue({
+    el:"#main",
+    data:{
+      paramsReg:{
+        userStatus:0,
+      },
+      myDisabled:true,
+      showCode:true,
+      count: '',
+      timer: null,
+    },
+
+    mounted:function () {
+      //注册表单验证
+      $("#regForm").bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+          valid: 'glyphicon glyphicon-ok',
+          invalid: 'glyphicon glyphicon-remove',
+          validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+          userPhone:{
+            message:"手机号验证失败",
+            validators:{
+              notEmpty:{
+                message:"请输入手机号"
+              },
+              regexp:{
+                regexp: /^1\d{10}$/,
+                message:"请输入正确的手机号"
+              },
+
+              callback:{
+                message:"此号码已被注册",
+                callback: function () {
+                  var flag = true;
+                  $.ajax({
+                    url:'http://localhost:9000/login/selectPhone', // 请求路径
+                    type:'GET',
+                    async:false,	// 同步请求，必须是false
+                    data:{
+                      userPhone:$('#regPhone').val() // 请求参数
+                    },
+                    success:function(res){
+                      //console.log(res);
+                      flag = res.valid;
+                    }
+                  });
+                  return flag;
+                }
+              },
+
+              /**
+               * 验证手机号码是否被注册( 被注册后台返回({"valid",false}) 没有被注册返回 {"valid",true})
+               * @param 参数为当前<input>的 name 的值
+               */
+              /*remote:{
+                url: "http://localhost:9000/login/selectPhone",
+                message:"此号码已被注册",
+                type: "GET"
+              }*/
+            }
+          },
+          code:{
+            message:"验证码验证失败",
+            validators:{
+              notEmpty:{
+                message:"请输入验证码"
+              },
+              remote:{
+                url: "http://localhost:9000/login/validationCode",
+                message:"验证码错误",
+                type: "GET",
+                delay:2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                data:function (validator) {
+                  return{
+                    "phone":$("#regPhone").val(),
+                    "code":$("#regCode").val()
+                  };
+                }
+              },
+            }
+          },
+          userPassword:{
+            message:"密码验证失败",
+            validators:{
+              notEmpty:{
+                message:"请输入验证码"
+              },
+              stringLength:{
+                min:6,
+                max:10,
+                message:"密码长度为6到10个字符"
+              }
+            }
+          },
+          confirmPwd:{
+            message:"确认密码验证失败",
+            validators:{
+              notEmpty:{
+                message:"确认密码不能为空"
+              },
+              identical:{
+                field:"userPassword",
+                message:"两次密码不一致"
+              }
+            }
+          }
+        }
+      });
+    },
+
+    methods:{
+
+      changePhone:function(){
+        //获取手机号验证状态
+        var flag = $("#regForm").data("bootstrapValidator").isValidField('userPhone');
+        console.log(flag);
+        if (flag){
+          this.myDisabled = false;
+        }else {
+          this.myDisabled = true;
+        }
+      },
+
+      getCode:function () {
+        const TIME_COUNT = 60;
+        if (!this.timer) {
+          this.count = TIME_COUNT;
+          this.showCode = false;
+          this.timer = setInterval(() => {
+            if (this.count > 0 && this.count <= TIME_COUNT) {
+              this.count--;
+            } else {
+              this.showCode = true;
+              clearInterval(this.timer);
+              this.timer = null;
+            }
+          }, 1000)
+        }
+
+        $.ajax({
+          url:"http://localhost:9000/login/sendMsg",
+          type:"GET",
+          dataType: "json",
+          data:{
+            "phone":$('#regPhone').val(),
+            "type":'reg'
+          },
+          success:function (data) {
+            if ( data.code === 0 ){
+              alert("发送验证码中");
+            }else {
+              alert(data.msg);
+            }
+          }
+        });
+
+      },
+
+      userRegister:function () {
+        //手动验证表单
+        $("#regForm").data("bootstrapValidator").validate();
+        //获取表单验证状态
+        var flag = $("#regForm").data("bootstrapValidator").isValid();
+        if (flag){
+          $.ajax({
+            url:"http://localhost:9000/users/addUser",
+            type:"POST",
+            dataType:"json",
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify(vm.paramsReg),
+            success:function (data) {
+              //console.log(data);
+              if (data.code === 0){
+                alert("注册成功!");
+                window.location.href="login.html";
+              }else {
+                alert(data.msg);
+              }
+            }
+          });
+        }else {
+          alert("验证失败！")
+        }
+      }
+
+    }
+
+  })
+</script>
 </html>
