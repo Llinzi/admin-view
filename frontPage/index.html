@@ -46,7 +46,7 @@
                             <li><a href="shop_grid+list_3col.html">shop grid 3 column</a></li>
                             <li><a href="shop_grid+list_3col.html">shop list 3 column</a></li>
                             <li><a href="shop_detail.html">shop detail</a></li>
-                            <li><a href="shop_detail_fullwidth.html">shop detail fullwidth</a></li>
+                            <li><a href="shop_detail.html">shop detail fullwidth</a></li>
                             <li><a href="shop_checkout.html">checkout</a></li>
                             <li><a href="shop_order_complete.html">order complete</a></li>
                             <li><a href="shop_wishlist.html">wishlist</a></li>
@@ -113,7 +113,7 @@
                         </div>
                         <div class="nav-column">
                           <h2>店铺详情</h2>
-                          <li><a href="shop_detail_fullwidth.html">商店详细信息</a></li>
+                          <li><a href="shop_detail.html">商店详细信息</a></li>
                           <li><a href="shop_detail.html">商店详细信息侧栏</a></li>
                         </div>
                         <div class="nav-column">
@@ -126,28 +126,6 @@
                         </div>
                       </ul>
                     </li>
-                    <li class="toggleable"><a class="menu-item" href="blog_list_sidebar.html">博客</a>
-                      <ul class="sub-menu">
-                        <li><a href="blog_list_sidebar.html">博客列表侧栏</a></li>
-                        <li><a href="blog_grid_2col.html">Blog Grid2列</a></li>
-                        <li><a href="blog_grid_sidebar.html">网格边栏</a></li>
-                        <li><a href="blog_masonry.html">博客砌体</a></li>
-                        <li><a href="blog_grid_1col.html">Blog Grid 1列侧边栏</a></li>
-                        <li><a href="blog_detail_sidebar.html">博客详细信息侧栏</a></li>
-                      </ul>
-                    </li>
-                    <li class="toggleable"> <a class="menu-item" href="#">功能</a>
-                      <ul class="sub-menu">
-                        <li><a href="login.html">登录</a></li>
-                        <li><a href="register.html">注册</a></li>
-												<li><a href="user.html">个人信息</a></li>
-												<li><a href="edit.html">修改个人信息</a></li>
-                        <li><a href="faq.html">常用问题</a></li>
-                        <li><a href="coming_soon.html">快来了</a></li>
-                        <li><a href="contact_us.html">联系我们</a></li>
-                        <li><a href="404_error.html">404错误</a></li>
-                      </ul>
-                    </li>
                     <li class="toggleable"><a class="menu-item" href="about_us.html">关于我们</a></li>
                   </ul>
                 </div>
@@ -155,11 +133,15 @@
               <div class="col-12 col-lg-3">
                 <div class="nav-right_block">
                   <div class="form website-search_coffee">
-                    <input class="round-input no-border" type="text" placeholder="你需要什么">
-                    <button class="normal-btn black"><i class="icon_search"></i></button>
+                    <span style="color: white">欢迎您</span>
                   </div>
                   <div class="product-function d-flex align-items-center justify-content-end">
-                    <div id="cart"><a class="function-icon icon_bag_alt" href=""><span>$150.00</span></a></div>
+                    <div id="cart"><a href="shop_cart.html" title="购物车">
+                      <i class="fa fa-shopping-cart fa-2x"  aria-hidden="true" style="color: white"></i></a>
+                    </div>
+                    <div id="user" style="margin-left: 60px">
+                      <a href="#"><i class="fa fa-user fa-2x" aria-hidden="true" style="color: white"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -314,19 +296,19 @@
         <div class="container">
           <div class="row">
             <div class="col-12 text-center">
-              <h1 class="title mx-auto">特色产品</h1>
+              <h1 class="title mx-auto">美味咖啡</h1>
             </div>
             <div class="col-12">
               <div id="tab">
                 <ul class="tab-control">
-                  <li><a class="active" href="#tab-1">所有</a></li>
+                  <li><a class="active" href="#tab-1">所有咖啡</a></li>
                   <li><a href="#tab-2">拿铁咖啡</a></li>
-                  <li> <a href="#tab-3">卡布奇洛</a></li>
+                  <li><a href="#tab-3">卡布奇洛</a></li>
                   <li><a href="#tab-4">浓缩咖啡</a></li>
                   <li><a href="#tab-5">美式咖啡</a></li>
-									<li><a href="#tab-5">白咖啡</a></li>
-									<li><a href="#tab-5">摩卡咖啡</a></li>
-									<li><a href="#tab-5">焦糖玛奇朵咖啡</a></li>
+				  <li><a href="#tab-5">白咖啡</a></li>
+                  <li><a href="#tab-5">摩卡咖啡</a></li>
+                  <li><a href="#tab-5">焦糖玛奇朵咖啡</a></li>
                 </ul>
                 <div id="tab-1">
                   <div class="row no-gutters-sm">
@@ -458,7 +440,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
                        <h5 class="product-type">拿铁咖啡</h5>
                        <h3 class="product-name">拿铁</h3>
-                       <h3 class="product-price">$14.00 
+                       <h3 class="product-price">$14.00
                          <del>$35.00</del>
                        </h3>
                         <div class="product-select">
@@ -473,7 +455,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -488,7 +470,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -503,7 +485,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -518,7 +500,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -533,7 +515,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -548,7 +530,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -563,7 +545,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
                        <h5 class="product-type">拿铁咖啡</h5>
                        <h3 class="product-name">拿铁</h3>
-                       <h3 class="product-price">$14.00 
+                       <h3 class="product-price">$14.00
                          <del>$35.00</del>
                        </h3>
                         <div class="product-select">
@@ -576,13 +558,13 @@
                     </div>
                   </div>
                 </div>
-                <div id="tab-3"> 
+                <div id="tab-3">
                   <div class="row no-gutters-sm">
                     <div class="col-6 col-md-4 col-lg-3">
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product03.png" alt=""></a>
                        <h5 class="product-type">拿铁咖啡</h5>
                        <h3 class="product-name">拿铁</h3>
-                       <h3 class="product-price">$14.00 
+                       <h3 class="product-price">$14.00
                          <del>$35.00</del>
                        </h3>
                         <div class="product-select">
@@ -597,7 +579,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -612,7 +594,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -627,7 +609,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -642,7 +624,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -657,7 +639,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -672,7 +654,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -687,7 +669,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product07.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -706,7 +688,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -721,7 +703,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -736,7 +718,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product03.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -751,7 +733,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -766,7 +748,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -781,7 +763,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -796,7 +778,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product07.png" alt=""></a>
                        <h5 class="product-type">拿铁咖啡</h5>
                        <h3 class="product-name">拿铁</h3>
-                       <h3 class="product-price">$14.00 
+                       <h3 class="product-price">$14.00
                          <del>$35.00</del>
                        </h3>
                         <div class="product-select">
@@ -811,7 +793,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -830,7 +812,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -845,7 +827,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -860,7 +842,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
                         <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -875,7 +857,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -890,7 +872,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -905,7 +887,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
@@ -920,7 +902,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
                        <h5 class="product-type">拿铁咖啡</h5>
                        <h3 class="product-name">拿铁</h3>
-                       <h3 class="product-price">$14.00 
+                       <h3 class="product-price">$14.00
                          <del>$35.00</del>
                        </h3>
                         <div class="product-select">
@@ -935,7 +917,7 @@
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
                          <h5 class="product-type">拿铁咖啡</h5>
                         <h3 class="product-name">拿铁</h3>
-                        <h3 class="product-price">$14.00 
+                        <h3 class="product-price">$14.00
                           <del>$35.00</del>
                         </h3>
                         <div class="product-select">
