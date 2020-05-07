@@ -194,7 +194,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div v-show="!userEmpShow" v-for="(data,index) in dataList" class="row">
+                            <div v-show="!userEmpShow">
                                 <div class="col-sm-12">
                                     <table
                                            class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
@@ -228,7 +228,7 @@
                                             </th>
                                         </tr>
                                         </thead>
-                                        <tr role="row" class="odd">
+                                        <tr role="row" class="odd" v-for="(data,index) in dataList" class="row">
                                             <td>{{data.orderId}}</td>
                                             <td>{{data.employeesName}}</td>
                                             <td>{{((data.orderTime).replace(/T/,"—")).substring(0,19)}}</td>

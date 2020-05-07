@@ -398,8 +398,8 @@
               console.log(res);
               if (res.data.code === 0){
                 console.log(res);
-                window.location.href = "index.html";
-                window.sessionStorage.setItem("emp",JSON.stringify(res.data.emp));
+                window.location.href = "index2.html";
+                window.sessionStorage.setItem("empInfo",JSON.stringify(res.data.emp));
               }else {
                 alert(res.data.msg);
               }

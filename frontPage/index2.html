@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="keywords" content="blog, business, clean, clear, cooporate, creative, design web, flat, marketing, minimal, portfolio, shop, shopping, unique">
+    <meta name="author" content="MARTECH | Deer Creative Theme">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/custom_bootstrap.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/elegant.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/scroll.css">
+    <link rel="stylesheet" href="assets/css/icomoon.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+    <link rel="shortcut icon" href="assets/images/shortcut_logo.png">
+    <link href="../assets/css/upload-img.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+  </head>
+  <body>
+    <div id="main">
+      <header class="coffee">
+        <nav class="navigation">
+          <div class="container">
+            <div class="row no-gutters align-items-center">
+              <div class="col-lg-2"><a class="logo" href="index.html"><img src="assets/images/logo_white.png" alt=""></a></div>
+              <div class="col-lg-7">
+                <div class="navgition-menu d-flex align-items-center justify-content-start">
+                  <ul class="mb-0">
+                    <li class="toggleable"> <a class="active" href="index.html" style="color: #FFC74A;padding: 10px 0px;">首页</a></li>
+                    <li class="toggleable"> <a class="menu-item" href="shop_grid+list_3col.html">店铺</a>
+                      <ul class="sub-menu shop d-flex">
+                        <div class="nav-column">
+                          <h2>店铺布局</h2>
+                          <li><a href="shop_grid+list_fullwidth.html">商店网格全宽</a></li>
+                          <li><a href="shop_grid+list_fullwidth.html">商店清单全角</a></li>
+                          <li><a href="shop_grid+list_3col.html">商店网格3列</a></li>
+                          <li><a href="shop_grid+list_3col.html">商店网格3行</a></li>
+                        </div>
+                        <div class="nav-column">
+                          <h2>店铺详情</h2>
+                          <li><a href="shop_detail.html">商店详细信息</a></li>
+                          <li><a href="shop_detail.html">商店详细信息侧栏</a></li>
+                        </div>
+                        <div class="nav-column">
+                          <h2>商店页面</h2>
+                          <li><a href="shop_checkout.html">查看</a></li>
+                          <li><a href="shop_order_complete.html">订单完成</a></li>
+                          <li><a href="shop_wishlist.html">愿望清单</a></li>
+                          <li><a href="shop_compare.html">比较</a></li>
+                          <li><a href="shop_cart.html">大车</a></li>
+                        </div>
+                      </ul>
+                    </li>
+                    <li class="toggleable"><a class="menu-item" href="about_us.html">关于我们</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-lg-3">
+                <div class="nav-right_block">
+                  <div class="form website-search_coffee">
+                    <span style="color: white">欢迎您</span>
+                  </div>
+                  <div class="product-function d-flex align-items-center justify-content-end">
+                    <div id="cart">
+                      <a href="shop_cart.html" title="购物车"><i class="fa fa-shopping-cart fa-2x"  aria-hidden="true" style="color: white"></i></a>
+                    </div>
+                    <div id="user" style="margin-left: 60px">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user fa-2x" aria-hidden="true" style="color: white"></i>
+                      </a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#empInfo">销售员信息</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#employeesResult">销售员业绩</a>
+                        <a class="dropdown-item" href="#">退出登录</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!--个人信息模态框开始-->
+      <div class="modal fade" id="empInfo">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+              <h4 class="modal-title">销售员信息</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <form id="empForm">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label >姓名</label>
+                              <input v-model="empParams.employeesName" name="employeesName" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label>身份证号</label>
+                              <input v-model="empParams.employeesNumber" name="employeesNumber" type="text" class="form-control">
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>手机号</label>
+                              <input v-model="empParams.employeesPhone" name="employeesPhone" type="text" class="form-control">
+                            </div>
+
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label class="control-label">职位</label>
+                                  <select v-model="empParams.employeesJob" class="form-control" name="employeesJob" disabled="disabled">
+                                    <option value="普通员工">普通员工</option>
+                                    <option value="店长">店长</option>
+                                    <option value="经理">经理</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label class="control-label">状态</label>
+                                  <select v-model="empParams.employeesStatus" class="form-control" name="employeesStatus" disabled="disabled">
+                                    <option value="0">启用</option>
+                                    <option value="1">禁用</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm-6">
+
+                            <div class="row">
+                              <div class="col-sm-6" >
+                                <div class="form-group">
+                                  <label class="control-label">工资</label>
+                                  <input v-model="empParams.employeesSalary" name="employeesSalary" type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label class="control-label">年龄</label>
+                                  <input v-model="empParams.employeesAge" name="employeesAge" type="text" class="form-control">
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <div class="col-sm-6">
+
+                            <div class="row">
+                              <div class="col-sm-6" >
+                                <div class="form-group">
+                                  <label>性别</label>
+                                  <div class="row">
+                                    <div class="custom-control custom-radio col-sm-2" style="margin-left: 18px">
+                                      <input v-model="empParams.employeesSex" type="radio" value="0" id="customRadio1" name="employeesSex" class="custom-control-input">
+                                      <label class="custom-control-label" for="customRadio1">男</label>
+                                    </div>
+                                    <div class="custom-control custom-radio col-sm-2">
+                                      <input v-model="empParams.employeesSex" type="radio" value="1" id="customRadio2" name="employeesSex" class="custom-control-input">
+                                      <label class="custom-control-label" for="customRadio2">女</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <button type="button" id="updateEmp" @click="updateEmp()" class="btn btn-success mr-1 waves-effect waves-light">修改</button>
+                          <button type="reset" id="reset" class="btn btn-secondary waves-effect">重置</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--个人信息模态框结束-->
+
+      <!--我的业绩模态框开始-->
+      <div class="modal fade" id="employeesResult">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+              <h4 class="modal-title">销售员业绩</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+              <div class="col-sm-12">
+                <table
+                        class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                        style="border-collapse: collapse; border-spacing: 0px; width: 100%;"
+                        role="grid" aria-describedby="datatable_info">
+                  <thead>
+                  <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                        colspan="1" style="width: 71px;" aria-sort="ascending"
+                        aria-label="Image: activate to sort column descending">订单编号
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                        colspan="1" style="width: 118px;"
+                        aria-label="Added Date: activate to sort column ascending">销售员姓名
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                        colspan="1" style="width: 121px;"
+                        aria-label="No. of Units: activate to sort column ascending">下单时间
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                        colspan="1" style="width: 66px;"
+                        aria-label="Stock: activate to sort column ascending">下单总额
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                        colspan="1" style="width: 66px;"
+                        aria-label="Stock: activate to sort column ascending">订单状态
+                    </th>
+                  </tr>
+                  </thead>
+                  <tr role="row" class="odd" v-for="(data,index) in dataList">
+                    <td>{{data.orderId}}</td>
+                    <td>{{data.employeesName}}</td>
+                    <td>{{((data.orderTime).replace(/T/,"—")).substring(0,19)}}</td>
+                    <td>￥{{data.orderAmount}}</td>
+                    <td v-if="data.orderStatus == 1">已支付</td>
+                    <td v-else>未支付</td>
+                  </tr>
+                </table>
+              </div>
+              <div>
+                  <a href="#">
+                    <ul id="page">
+
+                    </ul>
+                  </a>
+                  <span>共{{params.total}}单销售业绩</span>
+              </div>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--收货地址模态框结束-->
+
+      <!-- End header-->
+      <div class="slider slider_v2">
+        <div class="full-fluid">
+          <div class="slider_wrapper">
+            <div class="slider-block" style="background-image: url('assets/images/homepage04/slider_bg.png')">
+              <div class="slider-content"> 
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-12">
+                      <div class="slider-text d-flex flex-column align-items-center">
+                        <div class="slider_img" data-animation="fadeInUp" data-delay=".4s"><img src="assets/images/homepage04/slider_img.png" alt=""></div><a class="normal-btn coffee" href="shop_grid+list_3col.html" data-animation="fadeInUp" data-delay=".4s">去购物</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-block" style="background-image: url('assets/images/homepage04/slider_bg_2.png')">
+              <div class="slider-content"> 
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-12">
+                      <div class="slider-text d-flex flex-column align-items-center">
+                        <div class="slider_img" data-animation="fadeInUp" data-delay=".4s"><img src="assets/images/homepage04/slider_img.png" alt=""></div><a class="normal-btn coffee" href="shop_grid+list_3col.html" data-animation="fadeInUp" data-delay=".4s">Shop now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-block" style="background-image: url('assets/images/homepage04/slider_bg.png')">
+              <div class="slider-content"> 
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-12">
+                      <div class="slider-text d-flex flex-column align-items-center">
+                        <div class="slider_img" data-animation="fadeInUp" data-delay=".4s"><img src="assets/images/homepage04/slider_img.png" alt=""></div><a class="normal-btn coffee" href="shop_grid+list_3col.html" data-animation="fadeInUp" data-delay=".4s">Shop now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End slider-->
+      <div class="ogami-introduce">
+        <div class="container">
+          <div class="ogami-introduce_block">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-12 col-md-6">
+                <div class="introduce_img text-center"><img src="assets/images/homepage04/introduce_img.png" alt=""></div>
+              </div>
+              <div class="col-10 col-md-6">
+                <div class="introduce-info text-center text-md-left">
+                  <h1 class="title">欢迎来到咖啡屋</h1>
+                  <p>一杯咖啡,带给一生幸福。 时光就像一杯咖啡,越久越浓。 咖啡就是人生,苦与甜都包含其中。 咖啡飘散过香味,剩苦涩陪着我。 右手咖啡,左手诗篇。 爱情,是种误解,比咖啡因危险一点。 咖啡厅里有童话,我又遇见了他。 心,很苦,像一杯忘了放糖的咖啡。 一杯咖啡,温暖得像一片海洋。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End introduce-->
+      <div class="delivery-process">
+        <div class="benefit-block">
+          <div class="container">
+            <div class="our-benefits">
+              <div class="row">
+                <div class="col-12 col-md-4">
+                  <div class="benefit-detail d-flex flex-column align-items-center"><img class="benefit-img" src="assets/images/homepage04/benefit-icon1.png" alt="">
+                    <h5 class="benefit-title">送货上门</h5>
+                    <p class="benefit-describle">对于消费超过99$的订单</p>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="benefit-detail d-flex flex-column align-items-center"><img class="benefit-img" src="assets/images/homepage04/benefit-icon2.png" alt="">
+                    <h5 class="benefit-title">准时交货</h5>
+                    <p class="benefit-describle">如果货有问题</p>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="benefit-detail boderless d-flex flex-column align-items-center"><img class="benefit-img" src="assets/images/homepage04/benefit-icon3.png" alt="">
+                    <h5 class="benefit-title">安全付款</h5>
+                    <p class="benefit-describle">100%安全付款</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="delivery-process_holder">
+          <div class="full-fluid">
+            <div class="container">
+              <div class="delivery-process_wrapper text-center">
+                <h1 class="title coffee-underline text-white">交货过程</h1>
+                <div class="delivery-process_block">
+                  <div class="row justify-content-between">
+                    <div class="col-6 col-md-3">
+                      <div class="process">
+                        <div class="process-icon"><img src="assets/images/homepage04/process_icon_1.png" alt=""></div>
+                        <div class="process-text">
+                          <h5>第一步</h5>
+                          <p>选择你的商品</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div class="process">
+                        <div class="process-icon"><img src="assets/images/homepage04/process_icon_2.png" alt=""></div>
+                        <div class="process-text">
+                          <h5>第二步</h5>
+                          <p>连接最近的咖啡屋</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div class="process">
+                        <div class="process-icon"><img src="assets/images/homepage04/process_icon_3.png" alt=""></div>
+                        <div class="process-text">
+                          <h5>第三步</h5>
+                          <p>分享你的位置</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div class="process">
+                        <div class="process-icon clear"><img src="assets/images/homepage04/process_icon_4.png" alt=""></div>
+                        <div class="process-text">
+                          <h5>第四步</h5>
+                          <p>快速交互</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End delivery-process-->
+      <div class="feature-products coffee">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h1 class="title mx-auto">美味咖啡</h1>
+            </div>
+            <div class="col-12">
+              <div id="tab">
+                <ul class="tab-control">
+                  <li><a class="active" href="#tab-1">所有咖啡</a></li>
+                  <li><a href="#tab-2">拿铁咖啡</a></li>
+                  <li><a href="#tab-3">卡布奇洛</a></li>
+                  <li><a href="#tab-4">浓缩咖啡</a></li>
+                  <li><a href="#tab-5">美式咖啡</a></li>
+				  <li><a href="#tab-5">白咖啡</a></li>
+                  <li><a href="#tab-5">摩卡咖啡</a></li>
+                  <li><a href="#tab-5">焦糖玛奇朵咖啡</a></li>
+                </ul>
+                <div id="tab-1">
+                  <div class="row no-gutters-sm">
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00 
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00 
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product03.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00 
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00 
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
+                       <h5 class="product-type">拿铁咖啡</h5>
+                       <h3 class="product-name">拿铁</h3>
+                       <h3 class="product-price">$14.00 
+                         <del>$35.00</del>
+                       </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00 
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product07.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00 
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
+                       <h5 class="product-type">拿铁咖啡</h5>
+                       <h3 class="product-name">拿铁</h3>
+                       <h3 class="product-price">$14.00 
+                         <del>$35.00</del>
+                       </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab-2">
+                  <div class="row no-gutters-sm">
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
+                       <h5 class="product-type">拿铁咖啡</h5>
+                       <h3 class="product-name">拿铁</h3>
+                       <h3 class="product-price">$14.00
+                         <del>$35.00</del>
+                       </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
+                       <h5 class="product-type">拿铁咖啡</h5>
+                       <h3 class="product-name">拿铁</h3>
+                       <h3 class="product-price">$14.00
+                         <del>$35.00</del>
+                       </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab-3">
+                  <div class="row no-gutters-sm">
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product03.png" alt=""></a>
+                       <h5 class="product-type">拿铁咖啡</h5>
+                       <h3 class="product-name">拿铁</h3>
+                       <h3 class="product-price">$14.00
+                         <del>$35.00</del>
+                       </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product07.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab-4">
+                  <div class="row no-gutters-sm">
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product03.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product07.png" alt=""></a>
+                       <h5 class="product-type">拿铁咖啡</h5>
+                       <h3 class="product-name">拿铁</h3>
+                       <h3 class="product-price">$14.00
+                         <del>$35.00</del>
+                       </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab-5">
+                  <div class="row no-gutters-sm">
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product02.png" alt=""></a>
+                        <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product01.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product05.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product08.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product04.png" alt=""></a>
+                       <h5 class="product-type">拿铁咖啡</h5>
+                       <h3 class="product-name">拿铁</h3>
+                       <h3 class="product-price">$14.00
+                         <del>$35.00</del>
+                       </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="assets/images/product/product06.png" alt=""></a>
+                         <h5 class="product-type">拿铁咖啡</h5>
+                        <h3 class="product-name">拿铁</h3>
+                        <h3 class="product-price">$14.00
+                          <del>$35.00</del>
+                        </h3>
+                        <div class="product-select">
+                          <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
+                          <button class="add-to-cart round-icon-btn coffee">  <i class="icon_bag_alt"></i></button>
+                          <button class="add-to-compare round-icon-btn coffee"> <i class="fas fa-random"></i></button>
+                          <button class="quickview round-icon-btn coffee"><i class="far fa-eye"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End feature-products-->
+      <div class="deal-of-week deal-of-week_parallax">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 text-center order-1">
+              <h1 class="title coffee-underline mx-auto">为什么选择我们</h1>
+            </div>
+            <div class="col-10 col-md-6 col-lg-4 order-3 order-md-2 order-lg-2">
+              <div class="row">
+                <div class="col-12">
+                  <div class="featured-use text-md-right">
+                    <div class="featured-use_intro order-2 order-md-1">
+                      <h5>用起来简单明了</h5>
+                    </div>
+                    <div class="featured-use_icon text-md-right order-1 order-md-2">
+                      <div class="icon-detail"><img src="assets/images/homepage04/dow_icon_1.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="featured-use text-md-right">
+                    <div class="featured-use_intro order-2 order-md-1">
+                      <h5>更方便</h5>
+                       
+                    </div>
+                    <div class="featured-use_icon text-md-right order-1 order-md-2">
+                      <div class="icon-detail"><img src="assets/images/homepage04/dow_icon_2.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 order-2 order-md-4 order-lg-3 text-center">
+              <div class="week-product_img"><img class="img-fluid" src="assets/images/homepage04/wcu_img.png" alt=""></div>
+            </div>
+            <div class="col-10 col-md-6 col-lg-4 order-4 order-md-3 order-lg-4">
+              <div class="row">
+                <div class="col-12">
+                  <div class="featured-use">
+                    <div class="featured-use_intro order-2">
+                      <h5>用起来简单明了</h5>
+                       
+                    </div>
+                    <div class="featured-use_icon order-1 ml-0">
+                      <div class="icon-detail"><img src="assets/images/homepage04/dow_icon_3.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="featured-use">
+                    <div class="featured-use_intro order-2">
+                      <h5>用起来简单明了</h5>
+                       
+                    </div>
+                    <div class="featured-use_icon order-1 ml-0">
+                      <div class="icon-detail"><img src="assets/images/homepage04/dow_icon_4.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End deak of the week-->
+      <div class="from-blog">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h1 class="title coffee-underline">来自博客</h1>
+            </div>
+            <div class="col-12">
+              <div class="news_wrapper">
+                <div class="col-4">
+                  <div class="news-blog">
+                    <div class="news-blog_img"><img src="assets/images/homepage04/blog_img_1.png" alt="blog img"></div>
+                    <div class="news-blog_text">
+                      <div class="news-credit"><a class="credit date" href="blog_list_sidebar.html"> <i class="far fa-calendar"></i> 3月 4,2017</a><a class="credit comment" href="blog_list_sidebar.html"> <i class="far fa-comments"></i>5</a></div><a class="news-title" href="blog_list_sidebar.html">咔咔咔咔咔咔扩扩扩扩扩</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="news-blog">
+                    <div class="news-blog_img"><img src="assets/images/homepage04/blog_img_2.png" alt="blog img"></div>
+                    <div class="news-blog_text">
+                      <div class="news-credit"><a class="credit date" href="blog_list_sidebar.html"> <i class="far fa-calendar"></i> 3月 4,2017</a><a class="credit comment" href="blog_list_sidebar.html"> <i class="far fa-comments"></i>5</a></div><a class="news-title" href="blog_list_sidebar.html">那肯定是高考比较不错的相处 </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="news-blog">
+                    <div class="news-blog_img"><img src="assets/images/homepage04/blog_img_3.png" alt="blog img"></div>
+                    <div class="news-blog_text">
+                      <div class="news-credit"><a class="credit date" href="blog_list_sidebar.html"> <i class="far fa-calendar"></i> 3月 4,2017</a><a class="credit comment" href="blog_list_sidebar.html"> <i class="far fa-comments"></i>5</a></div><a class="news-title" href="blog_list_sidebar.html">代理反馈说看到回复基本的机会并订单VBv </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="news-blog">
+                    <div class="news-blog_img"><img src="assets/images/homepage04/blog_img_4.png" alt="blog img"></div>
+                    <div class="news-blog_text">
+                      <div class="news-credit"><a class="credit date" href="blog_list_sidebar.html"> <i class="far fa-calendar"></i> 3月 4,2017</a><a class="credit comment" href="blog_list_sidebar.html"> <i class="far fa-comments"></i>5</a></div><a class="news-title" href="blog_list_sidebar.html">中长款各种数据汇总深V和工程规划分析</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End from the blog-->
+      <div class="partner">
+        <div class="container">
+          <div class="partner_block d-flex justify-content-between" data-slick="{&quot;slidesToShow&quot;: 6}">
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_01.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_02.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_01.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_02.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_01.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_02.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href=""><img src="assets/images/partner/partner_01.png" alt="partner logo"></a></div>
+          </div>
+        </div>
+      </div>
+      <!-- End partner-->
+      <footer class="coffee">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 text-sm-center text-md-left">
+              <div class="footer-logo"><img src="assets/images/logo.png" alt=""></div>
+              <div class="footer-contact">
+                <p>地址: 贵州山咔咔里</p>
+                <p>电话: 18396910028</p>
+                <p>Email: 266255255@gmail.com</p>
+              </div>
+              <div class="footer-social"><a class="round-icon-btn coffee" href=""><i class="fab fa-facebook-f"> </i></a><a class="round-icon-btn coffee" href=""><i class="fab fa-twitter"></i></a><a class="round-icon-btn coffee" href=""><i class="fab fa-invision"> </i></a><a class="round-icon-btn coffee" href=""><i class="fab fa-pinterest-p"></i></a></div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-12 col-sm-4 text-sm-center text-md-left">
+                  <div class="footer-quicklink">
+                    <h5>信息化</h5><a href="about_us.html">关于我们</a><a href="checkout.html">退房</a><a href="contact.html">联系</a><a href="about_us.html">服务</a>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4 text-sm-center text-md-left">
+                  <div class="footer-quicklink">
+                    <h5>My 我的账户</h5><a href="login.html">我的账户</a><a href="contact.html">联系</a><a href="shop_cart.html">购物车</a><a href="shop_grid+list_3col.html">店铺</a>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4 text-sm-center text-md-left">
+                  <div class="footer-quicklink">
+                    <h5>快速店铺</h5><a href="about_us.html">关于我们</a><a href="checkout.html">退房</a><a href="contact.html">联系</a><a href="about_us.html">服务</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="newletter">
+          <div class="container">
+            <div class="row justify-content-between align-items-center">
+              <div class="col-12 col-md-7">
+                <div class="newletter_text text-center text-md-left">
+                  <h5>立即加入哦们的新闻通讯</h5>
+                  <p>获取我们最新商品和特惠信息的电子邮件.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="newletter_input">
+                  <input class="round-input" type="text" placeholder="Enter your email">
+                  <button>Subcribe</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-credit">
+          <div class="container">
+            <div class="footer-creadit_block d-flex flex-column flex-md-row justify-content-start justify-content-md-between align-items-baseline align-items-md-center">
+              <p class="author">贵州民族大学2016级软件工程3班 <a href="http://www.17sucai.com/" title="17sucai">王显成，曹江柳，张正华</a>.</p><img class="payment-method" src="assets/images/payment.png" alt="">
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- End footer-->
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="../assets/js/vue.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/jquery.scrollUp.min.js"></script>
+    <script src="assets/js/jquery.zoom.min.js"></script>
+    <script src="assets/js/parallax.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/numscroller-1.0.js"></script>
+    <script src="assets/js/vanilla-tilt.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="../assets/js/parsley.min.js"></script>
+    <script src="../assets/js/axios.min.js"></script>
+    <script src="../assets/js/bootstrap-paginator.js"></script>
+  <script>
+    var vm = new Vue({
+      el:"#main",
+      data:{
+        params:{
+          employeesId:null,
+          orderType:2,
+          startTime:null,
+          endTime:null,
+          orderStatus:-1,
+          pageSize:10,
+          currentPage:1,
+          total:1,
+        },
+        empParams:{},
+        empInfo:{},//销售员信息
+        dataList:[],
+      },
+
+      mounted:function () {
+        //获取缓存中的用户 id
+        this.empInfo = JSON.parse(window.sessionStorage.getItem("empInfo"));
+        this.empParams = this.empInfo;
+        this.params.employeesId = this.empInfo.employeesId;
+        //初始化分页模板
+        var options = {
+          bootstrapMajorVersion: 4,
+          currentPage: this.params.currentPage, // 当前页数
+          numberOfPages: 5, // 显示按钮的数量
+          totalPages: this.params.pages, // 总页数
+          onPageClicked:function(event, originalEvent, type,page){
+            vm.params.currentPage=page;
+            vm.selectOrder();
+          },
+          onPageChanged:function(event, oldPage, newPage){
+            vm.params.currentPage=newPage;
+            vm.selectOrder();
+          }
+        };
+        $("#page").bootstrapPaginator(options);
+
+        this.selectOrder();
+      },
+
+      methods:{
+        selectOrder:function () {
+          axios({
+            method:'GET',
+            url:'http://localhost:9000/orders/selectOrders',
+            params: this.params,
+          }).then(res => {
+            if (res.data.code === 0){
+              vm.dataList = res.data.dataList;
+              vm.params.pages = res.data.pages;//总页数
+              vm.params.currentPage = res.data.pageNum;//第几页
+              vm.params.total = res.data.total;//总条数
+              $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
+            }
+          }).catch(res => {
+            console.log(res);
+          })
+        },
+        //修改销售员信息
+        updateEmp:function () {
+          $.ajax({
+            type: "POST",
+            url:"http://localhost:9000/employees/updateEmployees",
+            dataType:"json",
+            //async:false, //同步
+            contentType: "application/json",
+            data:JSON.stringify(vm.empParams),
+            success:function (data) {
+              if (data.code == 0){
+                vm.empInfo = vm.empParams;
+                window.sessionStorage.setItem("empInfo",JSON.stringify(vm.empInfo));
+                alert(data.msg);
+              }else {
+                alert(data.msg);
+              }
+            }
+          });
+        }
+      },
+
+    })
+  </script>
+  </body>
+</html>
