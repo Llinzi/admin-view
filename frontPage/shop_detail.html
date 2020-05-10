@@ -39,65 +39,54 @@
                 <div class="row">
                   <div class="col-12 col-xl-5">
                     <div class="shop-detail_img">
-                      <button class="round-icon-btn" id="zoom-btn"> <i class="icon_zoom-in_alt"></i></button>
                       <div class="row">
-                        <div class="col-3">
-                          <div class="slide-img" data-slick="{&quot;vertical&quot;: true}">
-                            <div class="slide-img_block"><img src="assets/images/shop/zoom_img_1.png" alt="product image"></div>
-                            <div class="slide-img_block"><img src="assets/images/shop/zoom_img_2.png" alt="product image"></div>
-                            <div class="slide-img_block"><img src="assets/images/shop/zoom_img_3.png" alt="product image"></div>
-                          </div>
-                        </div>
-                        <div class="col-9">
+                        <div class="col-10">
                           <div class="big-img">
-                            <div class="big-img_block"><img src="assets/images/shop/zoom_img_1.png" alt="product image"></div>
-                            <div class="big-img_block"><img src="assets/images/shop/zoom_img_2.png" alt="product image"></div>
-                            <div class="big-img_block"><img src="assets/images/shop/zoom_img_3.png" alt="product image"></div>
+                            <div class="big-img_block">
+                              <img  v-if="coffeeDetail.coffeePhoto == null || coffeeDetail.coffeePhoto == ''" src="../assets/images/products/1.jpg" width="500px" height="400px">
+                              <img  v-else :src="coffeeDetail.coffeePhoto">
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="img_control"></div>
                   </div>
                   <div class="col-12 col-xl-7">
                     <div class="row">
                       <div class="col-md-7 col-lg-7 col-xxl-8">
                         <div class="shop-detail_info">
-                          <h5 class="product-type color-type">Oranges</h5>
-                          <h2 class="product-name">Pure Pineapple</h2>
+                          <h5 class="product-type color-type">{{coffeeDetail.coffeeName}}</h5>
+                          <h3 class="product-name">咖啡详情</h3>
                           <div class="product-describe_block">
-                            <p class="product-describe">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="product-describe">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <p class="product-describe">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia mollit anim id est laborum.</p>
-                            <p class="product-describe">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventor.</p>
-                            <p class="product-describe">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem</p>
+                            <p class="product-describe">{{coffeeDetail.coffeeDetails}}</p>
+                          </div>
+                        </div>
+                        <div class="shop-detail_info">
+                          <h3 class="product-name">咖啡简介</h3>
+                          <div class="product-describe_block">
+                            <p class="product-describe">{{coffeeDetail.coffeeBrief}}</p>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-5 col-lg-5 col-xxl-4">
                         <div class="shop-detail_info shop-detail_info-full">
-                          <p class="delivery-status">Free delivery</p>
+                          <p class="delivery-status">其它信息</p>
                           <div class="price-rate">
                             <h3 class="product-price"> 
-                              <del>$35.00</del>$14.00
+                              <del>{{coffeeDetail.coffeePrices}}</del>{{coffeeDetail.coffeeDiscount}}
                             </h3>
-                            <h5 class="product-rated"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star-half"></i><span>(15)</span></h5>
-                          </div>
-                          <div class="color-select">
-                            <h5>Select Color:</h5><a class="color bg-danger" href="#"></a><a class="color bg-success" href="#"></a><a class="color bg-info" href="#"></a>
+                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 5"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
+                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 4"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
+                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 3"><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
+                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 2"><i class="icon_star"></i><i class="icon_star"></i></h5>
+                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 1"><i class="icon_star"></i></h5>
                           </div>
                           <div class="quantity-select">
-                            <label for="quantity">Quatity:</label>
+                            <label for="quantity">购买数量</label>
                             <input class="no-round-input" id="quantity" type="number" min="0" value="1">
                           </div>
                           <div class="product-select">
-                            <button class="add-to-cart normal-btn outline">Add to Cart</button>
-                            <button class="add-to-compare normal-btn outline">+ Add to Compare</button>
-                          </div>
-                          <div class="product-guarante">
-                            <p class="guarante">Satisfaction 100% Guaranteed</p>
-                            <p class="guarante">Free shipping on orders over $99</p>
-                            <p class="guarante">14 day easy Return</p>
+                            <button class="add-to-cart normal-btn outline">加入购物车</button>
                           </div>
                         </div>
                       </div>
@@ -107,41 +96,30 @@
                     <div class="shop-detail_more-info">
                       <div id="tab-so3">
                         <ul class="mb-0">
-                          <li> <a href="#tab-3">用户评论(2)</a></li>
+                          <li> <a href="#tab-3">用户评论({{commentParams.total}})</a></li>
                         </ul>
                         <div id="tab-3">
                           <div class="customer-reviews_block">
-                            <div class="customer-review">
+                            <div class="customer-review" v-for="(data,index) in commentList">
                               <div class="row">
                                 <div class="col-12 col-sm-3 col-lg-2 col-xxl-1">
                                   <div class="customer-review_left">
-                                    <div class="customer-review_img text-center"><img class="img-fluid" src="assets/images/shop/reviewer_01.png" alt="customer image"></div>
+                                    <div class="customer-review_img text-center"><img class="img-fluid" :src="data.userHphoto" alt="customer image"></div>
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-9 col-lg-10 col-xxl-11">
-                                  <div class="customer-comment"> 
-                                    <h5 class="comment-date">27 Aug 2016</h5>
-                                    <h3 class="customer-name">Jenney Kelley</h3>
-                                    <p class="customer-commented">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                  <div class="customer-comment">
+                                    <h5 class="comment-date">{{((data.commentsDate).replace(/T/,"—")).substring(0,19)}}</h5>
+                                    <h3 class="customer-name">{{data.userName }}</h3>
+                                    <p class="customer-commented">{{data.commentsFilterContent}}
+                                    <span style="color: white">11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111231111111111111111111111111111111111111111</span>
+                                    </p>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div class="customer-review">
-                              <div class="row">
-                                <div class="col-12 col-sm-3 col-lg-2 col-xxl-1">
-                                  <div class="customer-review_left">
-                                    <div class="customer-review_img text-center"><img class="img-fluid" src="assets/images/shop/reviewer_02.png" alt="customer image"></div>
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-9 col-lg-10 col-xxl-11">
-                                  <div class="customer-comment"> 
-                                    <h5 class="comment-date">27 Aug 2016</h5>
-                                    <h3 class="customer-name">Jenney Kelley</h3>
-                                    <p class="customer-commented">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                  </div>
-                                </div>
-                              </div>
+                            <div style="text-align: right;color: green">
+                              <a href="javascript:void(0)" @click="moreComment()">查看更多评论</a>
                             </div>
                             <div class="add-review">
                               <div class="add-review_top">
@@ -151,10 +129,10 @@
                                 <form action="#">
                                   <div class="row">
                                     <div class="col-12">
-                                      <textarea class="textarea-form" id="review" name="" cols="30" rows="5" placeholder="Message"></textarea>
+                                      <textarea v-model="commentContent" class="textarea-form" id="review" name="" cols="30" rows="5" placeholder="Message"></textarea>
                                     </div>
                                     <div class="col-12">
-                                      <button class="normal-btn">发表评论</button>
+                                      <button type="button" class="normal-btn" @click="addComment()">发表评论</button>
                                     </div>
                                   </div>
                                 </form>
@@ -254,6 +232,7 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="../assets/js/vue.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/jquery.easing.js"></script>
     <script src="assets/js/jquery.scrollUp.min.js"></script>
@@ -263,5 +242,82 @@
     <script src="assets/js/numscroller-1.0.js"></script>
     <script src="assets/js/vanilla-tilt.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="../assets/js/axios.min.js"></script>
+    <script>
+      var vm = new Vue({
+        el:"#main",
+        data:{
+          coffeeDetail:{},//咖啡详情
+          commentParams:{
+            coffeeId:0,
+            pageSize:5,
+            currentPage:1,
+            total:0,
+          },//查询评论参数
+          commentList:[],//评论信息
+          commentContent:"",//添加评论内容
+        },
+        mounted:function () {
+          //获取咖啡详情
+          this.coffeeDetail = JSON.parse(window.sessionStorage.getItem("coffeeDetail"));
+          this.selectComment();
+        },
+        methods:{
+          //查询该咖啡的评论
+          selectComment:function () {
+            this.commentParams.coffeeId = this.coffeeDetail.coffeeId;
+            axios({
+              method:'GET',
+              url:'http://localhost:9000/comments/selectComments',
+              params: this.commentParams,
+            }).then(res =>{
+              if (res.data.code === 0){
+                console.log(res);
+                this.commentList = res.data.dataList;
+                vm.commentParams.currentPage = res.data.pageNum; //第几页
+                vm.commentParams.total = res.data.total;//总条数
+              }
+            }).catch(res =>{
+              console.log(res);
+            })
+          },
+
+          //添加评论
+          addComment:function () {
+            if (this.commentContent == '' || this.commentContent == null){
+              alert("请输入评论内容")
+            }else {
+              var userInfo = JSON.parse(window.sessionStorage.getItem("userInfo"));
+              var userId = userInfo.userId;
+              axios({
+                method:'POST',
+                url:'http://localhost:9000/comments/addComments',
+                data:{
+                  "coffeeId":this.coffeeDetail.coffeeId,
+                  "userId":userId,
+                  "commentsContent": this.commentContent
+                },
+                headers: {
+                  "Content-Type":"application/json"
+                }
+              }).then(res => {
+                if (res.data.code === 0){
+                  this.selectComment();
+                  alert(res.data.msg);
+                }else {
+                  alert(res.data.msg);
+                }
+              }).catch(res => {
+                console.log(res);
+              })
+            }
+          },
+          moreComment:function () {
+            this.commentParams.pageSize = this.commentParams.pageSize + 5;
+            this.selectComment();
+          }
+        }
+      });
+    </script>
   </body>
 </html>

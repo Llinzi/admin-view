@@ -59,46 +59,18 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr v-for="(data,index) in shoppingList">
                       <td class="product-iamge"> 
-                        <div class="img-wrapper"><img src="assets/images/product/product03.png" alt="product image"></div>
+                        <div class="img-wrapper"><img :src="data.coffeePhoto"></div>
                       </td>
-                      <td class="product-name">Pure Pineapple</td>
-                      <td class="product-price">$460.00</td>
+                      <td class="product-name">{{data.coffeeName}}</td>
+                      <td class="product-price">{{data.transactionPrice}}</td>
                       <td class="product-quantity"> 
-                        <input class="quantity no-round-input" type="number" min="1" value="1">
+                        <input class="quantity no-round-input" type="number" :value="data.transactionCount"  @click="changeCount(data.transactionPrice)">
                       </td>
-                      <td class="product-total">$460.00</td>
+                      <td class="product-total">{{shopCart.transactionTotalPrice}}</td>
                       <td class="product-clear"> 
-                        <button class="no-round-btn"><i class="icon_close"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="product-iamge"> 
-                        <div class="img-wrapper"><img src="assets/images/product/product02.png" alt="product image"></div>
-                      </td>
-                      <td class="product-name">American lobster</td>
-                      <td class="product-price">$460.00</td>
-                      <td class="product-quantity"> 
-                        <input class="quantity no-round-input" type="number" min="1" value="1">
-                      </td>
-                      <td class="product-total">$460.00</td>
-                      <td class="product-clear"> 
-                        <button class="no-round-btn"><i class="icon_close"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="product-iamge"> 
-                        <div class="img-wrapper"><img src="assets/images/product/product05.png" alt="product image"></div>
-                      </td>
-                      <td class="product-name">Chrysanthemum</td>
-                      <td class="product-price">$460.00</td>
-                      <td class="product-quantity">
-                        <input class="quantity no-round-input" type="number" min="1" value="2">
-                      </td>
-                      <td class="product-total">$920.00</td>
-                      <td class="product-clear"> 
-                        <button class="no-round-btn"><i class="icon_close"></i></button>
+                        <button class="no-round-btn" @click="removeShopping(data)"><i class="icon_close"></i></button>
                       </td>
                     </tr>
                   </tbody>
@@ -208,6 +180,7 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="../assets/js/vue.min.js"></script>
     <script src="assets/js/jquery.countdown.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/jquery.easing.js"></script>
@@ -218,6 +191,70 @@
     <script src="assets/js/numscroller-1.0.js"></script>
     <script src="assets/js/vanilla-tilt.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script></script>
+    <script src="../assets/js/axios.min.js"></script>
+    <script>
+      var vm = new Vue({
+        el:"#main",
+        data:{
+          userInfo:{},
+          shoppingList:[],
+          shopCart:{
+            transactionCount:1,
+            transactionTotalPrice:0,
+          }
+        },
+        mounted:function () {
+          //获取缓存中的用户 id
+          this.userInfo = JSON.parse(window.sessionStorage.getItem("userInfo"));
+          this.selectShopCart();
+        },
+        methods:{
+          //获得该用户的购物车
+          selectShopCart:function () {
+            var url = "http://localhost:9000/coffeeOperation/selectAllShopping";
+            var args = {
+              "userId":this.userInfo.userId,
+            };
+            $.post(url,args,function (data) {
+              if (data.code === 0){
+                vm.shoppingList = data.shoppingList;
+              }else {
+                alert(data.msg);
+              }
+            });
+          },
+
+          //改变数量
+          changeCount:function (transactionPrice) {
+            this.shopCart.transactionTotalPrice=this.shopCart.transactionCount * transactionPrice;
+          },
+          
+          //移除咖啡
+          removeShopping:function (data) {
+            if(confirm("确定要将此商品从购物车移除吗！！！")){
+              var url = "http://localhost:9000/coffeeOperation/removeShopping";
+              var args = {
+                "userId":vm.userInfo.userId,
+                "coffeeId":data.coffeeId,
+                "coffeeName":data.coffeeName,
+                "coffeePhoto":data.coffeePhoto,
+                "transactionPrice":data.transactionPrice,
+                "transactionCount":data.transactionCount
+              };
+              $.post(url,args,function(data){
+                if(data.code == 0){
+                  vm.selectShopCart();
+                }else{
+                  alert(data.msg);
+                }
+              });
+            }
+
+            return false;
+          }
+
+        }
+      })
+    </script>
   </body>
 </html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>咖啡后台-用户查询</title>
+    <meta content="Admin Dashboard" name="description"/>
+    <meta content="Themesbrand" name="author"/>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+    <link href="http://cdn.bootstrapmb.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/metisMenu.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a href="index.html" class="logo">
+						<span>
+							<img src="../assets/images/logo-light.png" alt="" height="18">
+						</span>
+                <i>
+                    <img src="../assets/images/logo-sm.png" alt="" height="22">
+                </i>
+            </a>
+        </div>
+        <nav class="navbar-custom">
+            <ul class="list-inline menu-left mb-0">
+                <li class="float-left">
+                    <button class="button-menu-mobile open-left waves-effect">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+                    <span style="font-size: 18px;margin-left: 5px;">评论查询查询</span>
+                </li>
+            </ul>
+
+
+        </nav>
+    </div>
+    <!-- Top Bar End -->
+
+    <!-- Left Sidebar Start -->
+	<div id="leftMenu">
+
+	</div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page" id="content">
+        <!-- 页面主体内容开始 -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                        <div class="row">
+
+                                            <div class="col-sm-4 col-md-2">
+                                                <div class="dataTables_filter">
+                                                    <label>
+                                                        咖啡编号:<input v-model="params.coffeeId" type="text" class="form-control form-control-sm">
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4 col-md-2">
+                                                <div class="dataTables_filter">
+                                                    <label>
+                                                        姓名:<input v-model="params.userName" type="text" class="form-control form-control-sm">
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4 col-md-2">
+                                                <div class="dataTables_length" >
+                                                    <label>
+                                                        <select v-model="params.pageSize" class="custom-select custom-select-md form-control form-control-sm" style="margin-top: 17px">
+                                                            <option value="10">10条/页</option>
+                                                            <option value="25">25条/页</option>
+                                                            <option value="40">40条/页</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-2 col-md-1">
+                                                <button @click="selectComments()" type="button" class="btn btn-info waves-effect waves-light" style="margin-top: 17px">查询</button>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table " style="border-collapse: collapse; border-spacing: 0px; width: 100%;">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th>头像</th>
+                                                            <th width="80px">咖啡编号</th>
+                                                            <th width="80px">用户编号</th>
+                                                            <th width="80px">用户姓名</th>
+                                                            <th>评论内容</th>
+                                                            <th>评论过滤后内容</th>
+                                                            <th width="80px">评论时间</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="userTbody">
+                                                        <tr v-for="(data,index) in dataList">
+                                                            <td><img v-bind:src="data.userHphoto" class="thumb-md"></td>
+                                                            <td>{{data.coffeeId}}</td>
+                                                            <td>{{data.userId}}</td>
+                                                            <td>{{data.userName}}</td>
+                                                            <td>{{data.commentsContent}}</td>
+                                                            <td>{{data.commentsFilterContent}}</td>
+                                                            <td>{{data.commentsDate}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div >
+                                            <ul id="page">
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 页面主体内容结束 -->
+        <footer class="footer">
+			© 2020 毕业设计 <span class="d-none d-sm-inline-block"> - 咖啡销售管理系统.</span>
+        </footer>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+
+<!-- jQuery  -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/vue.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/metisMenu.min.js"></script>
+<script src="../assets/js/jquery.slimscroll.js"></script>
+<script src="../assets/js/waves.min.js"></script>
+<script src="../assets/js/bootstrap-paginator.js"></script>
+<!-- App js -->
+<!--<script src="../assets/js/app.js"></script>-->
+<script>
+	$(function () {
+		$("#leftMenu").load("leftMenu.html");
+	})
+</script>
+<script>
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            params: {
+                userName:null,
+                coffeeId:null,
+                pageSize:10,
+                currentPage:1, //当前页
+                pages:1
+            },
+            dataList:[]
+        },
+        mounted:function () {
+            //初始化分页模板
+            var options = {
+                bootstrapMajorVersion: 4,
+                currentPage: this.params.currentPage, // 当前页数
+                numberOfPages: 5, // 显示按钮的数量
+                totalPages: this.params.pages, // 总页数
+                onPageClicked:function(event, originalEvent, type,page){
+                    vm.params.currentPage=page;
+                    vm.selectComments();
+                },
+                onPageChanged:function(event, oldPage, newPage){
+                    vm.params.currentPage=newPage;
+                    vm.selectComments();
+                }
+            };
+            $("#page").bootstrapPaginator(options);
+
+            this.selectComments();
+        },
+        methods:{
+            //查询角色信息
+            selectComments:function () {
+                var url = "http://localhost:9000/comments/selectComments";
+                $.get(url,this.params,function (data) {
+                   if (data.code === 0){
+                       vm.dataList = data.dataList;
+                       vm.params.pages = data.pages;//总页数
+                       vm.params.currentPage = data.pageNum //第几页
+                       //设置分页(当前页,总页数)
+                       $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
+                   }else {
+                       alert(data.msg);
+                   }
+                });
+            },
+
+        }
+    })
+</script>
+</body>
+</html>
