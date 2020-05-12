@@ -76,7 +76,7 @@
                       </a>
                       <div class="dropdown-menu">
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myInfo">个人信息</a>
-                        <a class="dropdown-item" href="#">我的订单</a>
+                        <a class="dropdown-item" href="myOrder.html">我的订单</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#consignee">收货地址管理</a>
                         <a class="dropdown-item" href="#">退出登录</a>
                       </div>
@@ -405,8 +405,12 @@
                         <img  v-if="data.coffeePhoto == null || data.coffeePhoto == ''" src="../assets/images/products/1.jpg" class="img-fluid rounded-top mx-auto d-block">
                         <img  v-else :src="data.coffeePhoto" class="img-fluid rounded-top mx-auto d-block">
                         </a>
-                        <h5 class="product-type">{{data.coffeeName}}</h5>
-                        <h3 class="product-name">{{data.coffeeLevel}}</h3>
+                        <h3 class="product-type">{{data.coffeeName}}</h3>
+                        <h5 style="color: orange" class="product-rated" v-if="data.coffeeLevel == 5"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
+                        <h5 style="color: orange" class="product-rated" v-else-if="data.coffeeLevel == 4"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
+                        <h5 style="color: orange" class="product-rated" v-else-if="data.coffeeLevel == 3"><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
+                        <h5 style="color: orange" class="product-rated" v-else-if="data.coffeeLevel == 2"><i class="icon_star"></i><i class="icon_star"></i></h5>
+                        <h5 style="color: orange" class="product-rated" v-else-if="data.coffeeLevel == 1"><i class="icon_star"></i></h5>
                         <h3 class="product-price" v-if="data.coffeeDiscount == 0 || data.coffeeDiscount == null || data.coffeeDiscount == ''">
                           ￥{{data.coffeePrices}}
                         </h3>
@@ -414,6 +418,7 @@
                           ￥{{data.coffeeDiscount}}
                           <del>￥{{data.coffeePrices}}</del>
                         </h3>
+                        <h3 class="product-type">{{data.stockCount}}库存</h3>
                         <div class="product-select">
                           <button class="add-to-cart round-icon-btn coffee" @click="addCart(data)" title="加入购物车"><i class="icon_bag_alt"></i></button>
                         </div>
@@ -849,19 +854,23 @@
         //加入购物车
         addCart:function (data) {
           //window.location.href = "shop_cart.html";
-          var url = "http://localhost:9000/coffeeOperation/addShopping";
-          var args = {
-            "userId":vm.userInfo.userId,
-            "coffeeId":data.coffeeId,
-            "coffeeName":data.coffeeName,
-            "coffeePhoto":data.coffeePhoto,
-            "transactionPrice":data.coffeeDiscount>0?data.coffeeDiscount:data.coffeePrices,
-            "transactionCount":1
-          };
-          $.post(url,args,function(data){
-            alert(data.msg);
-          });
-          return false;
+          if(data.stockCount == 0){
+            alert("库存不足请选择其它咖啡！！！");
+            return false;
+          }
+            var url = "http://localhost:9000/coffeeOperation/addShopping";
+            var args = {
+              "userId":vm.userInfo.userId,
+              "coffeeId":data.coffeeId,
+              "coffeeName":data.coffeeName,
+              "coffeePhoto":data.coffeePhoto,
+              "transactionPrice":data.coffeeDiscount>0?data.coffeeDiscount:data.coffeePrices,
+              "transactionCount":1
+            };
+            $.post(url,args,function(data){
+              alert(data.msg);
+            });
+            return false;
         },
 
         //咖啡详情

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="keywords" content="blog, business, clean, clear, cooporate, creative, design web, flat, marketing, minimal, portfolio, shop, shopping, unique">
+    <meta name="author" content="MARTECH | Deer Creative Theme">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/custom_bootstrap.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/elegant.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/scroll.css">
+    <link rel="stylesheet" href="assets/css/icomoon.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+    <link rel="shortcut icon" href="assets/images/shortcut_logo.png">
+  </head>
+  <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+  <body>
+    <div id="main">
+      <!-- End header-->
+      <div class="ogami-breadcrumb">
+        <div class="container">
+          <ul>
+            <li> <a class="breadcrumb-link" href="index.html"> <i class="fas fa-home"></i>首页</a></li>
+            <li> <a class="breadcrumb-link" href="index.html">订单</a></li>
+            <li> <a class="breadcrumb-link active" href="index.html">我都订单</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End order step-->
+      <div class="shopping-cart">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <table id="datatable"
+                     class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                     style="border-collapse: collapse; border-spacing: 0px; width: 100%;"
+                     role="grid" aria-describedby="datatable_info">
+                <thead>
+                <tr role="row">
+                  <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                      colspan="1" style="width: 71px;" aria-sort="ascending"
+                      aria-label="Image: activate to sort column descending">订单编号
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                      colspan="1" style="width: 118px;"
+                      aria-label="Added Date: activate to sort column ascending">用户姓名
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                      colspan="1" style="width: 118px;"
+                      aria-label="Added Date: activate to sort column ascending">收货人姓名
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                      colspan="1" style="width: 86px;"
+                      aria-label="Amount: activate to sort column ascending">收货地址
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                      colspan="1" style="width: 121px;"
+                      aria-label="No. of Units: activate to sort column ascending">下单时间
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                      colspan="1" style="width: 66px;"
+                      aria-label="Stock: activate to sort column ascending">下单总额
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                      colspan="1" style="width: 66px;"
+                      aria-label="Stock: activate to sort column ascending">订单状态
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                      colspan="1" style="width: 74px;"
+                      aria-label="Action: activate to sort column ascending">操作
+                  </th>
+                </tr>
+                </thead>
+                <tr role="row" class="odd" v-for="(data,index) in dataList">
+                  <td>{{data.orderId}}</td>
+                  <td>{{data.userName}}</td>
+                  <td>{{data.consigneeInformationName}}</td>
+                  <td>{{data.consigneeInformationSite}}</td>
+                  <td>{{((data.orderTime).replace(/T/,"—")).substring(0,19)}}</td>
+                  <td>￥{{data.orderAmount}}</td>
+                  <td v-if="data.orderStatus == 1">已支付</td>
+                  <td v-else>未支付</td>
+                  <td>
+                    <a @click="selectOrderDetail(data.orderId)" href="javascript:void(0);" class="btn-primary" data-toggle="modal" data-target="#orderMoal">
+                      查看详情
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div style="width: 320px">
+            <a href="#">
+              <ul id="page">
+
+              </ul>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- End shopping cart-->
+      <div class="partner">
+        <div class="container">
+          <div class="partner_block d-flex justify-content-between" data-slick="{&quot;slidesToShow&quot;: 6}">
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_01.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_02.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_01.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_02.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_01.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href="#"><img src="assets/images/partner/partner_02.png" alt="partner logo"></a></div>
+            <div class="partner--logo" href=""> <a href=""><img src="assets/images/partner/partner_01.png" alt="partner logo"></a></div>
+          </div>
+        </div>
+      </div>
+      <!-- End partner-->
+      <footer class="coffee">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 text-sm-center text-md-left">
+              <div class="footer-logo"><img src="assets/images/logo.png" alt=""></div>
+              <div class="footer-contact">
+                <p>地址: 贵州山咔咔里</p>
+                <p>电话: 18396910028</p>
+                <p>Email: 266255255@gmail.com</p>
+              </div>
+              <div class="footer-social"><a class="round-icon-btn coffee" href=""><i class="fab fa-facebook-f"> </i></a><a class="round-icon-btn coffee" href=""><i class="fab fa-twitter"></i></a><a class="round-icon-btn coffee" href=""><i class="fab fa-invision"> </i></a><a class="round-icon-btn coffee" href=""><i class="fab fa-pinterest-p"></i></a></div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-12 col-sm-4 text-sm-center text-md-left">
+                  <div class="footer-quicklink">
+                    <h5>信息化</h5><a href="about_us.html">关于我们</a><a href="checkout.html">退房</a><a href="contact.html">联系</a><a href="about_us.html">服务</a>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4 text-sm-center text-md-left">
+                  <div class="footer-quicklink">
+                    <h5>My 我的账户</h5><a href="login.html">我的账户</a><a href="contact.html">联系</a><a href="shop_cart.html">购物车</a><a href="shop_grid+list_3col.html">店铺</a>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4 text-sm-center text-md-left">
+                  <div class="footer-quicklink">
+                    <h5>快速店铺</h5><a href="about_us.html">关于我们</a><a href="checkout.html">退房</a><a href="contact.html">联系</a><a href="about_us.html">服务</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="newletter">
+          <div class="container">
+            <div class="row justify-content-between align-items-center">
+              <div class="col-12 col-md-7">
+                <div class="newletter_text text-center text-md-left">
+                  <h5>立即加入哦们的新闻通讯</h5>
+                  <p>获取我们最新商品和特惠信息的电子邮件.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="newletter_input">
+                  <input class="round-input" type="text" placeholder="Enter your email">
+                  <button>Subcribe</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-credit">
+          <div class="container">
+            <div class="footer-creadit_block d-flex flex-column flex-md-row justify-content-start justify-content-md-between align-items-baseline align-items-md-center">
+              <p class="author">贵州民族大学2016级软件工程3班 <a href="http://www.17sucai.com/" title="17sucai">王显成，曹江柳，张正华</a>.</p><img class="payment-method" src="assets/images/payment.png" alt="">
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- End footer-->
+      <div id="orderMoal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title mt-0" id="myModalLabel">订单详情</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-striped mb-0">
+                          <thead>
+                          <tr>
+                            <th>订单编号</th>
+                            <th>咖啡名称</th>
+                            <th>成交价</th>
+                            <th>成交数量</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr v-for="(data,index) in orderDetailList">
+                            <th scope="row">{{data.orderId}}</th>
+                            <td>{{data.coffeeName}}</td>
+                            <td>{{data.transactionPrice}}</td>
+                            <td>{{data.transactionCount}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="../assets/js/vue.min.js"></script>
+    <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/jquery.scrollUp.min.js"></script>
+    <script src="assets/js/jquery.zoom.min.js"></script>
+    <script src="assets/js/parallax.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/numscroller-1.0.js"></script>
+    <script src="assets/js/vanilla-tilt.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/axios.min.js"></script>
+    <script src="../assets/js/bootstrap-paginator.js"></script>
+    <script>
+      var vm = new Vue({
+        el:"#main",
+        data:{
+          userInfo:{},
+          params:{
+            userId:null,
+            orderType:1,
+            orderStatus:-1,
+            pageSize:10,
+            currentPage:1,
+          },
+          dataList:[],
+          orderDetailList:[],
+        },
+        mounted:function () {
+          //获取缓存中的用户 id
+          this.userInfo = JSON.parse(window.sessionStorage.getItem("userInfo"));
+          this.params.userId = this.userInfo.userId;
+
+          //初始化分页模板
+          var options = {
+            bootstrapMajorVersion: 4,
+            currentPage: this.params.currentPage, // 当前页数
+            numberOfPages: 5, // 显示按钮的数量
+            totalPages: this.params.pages, // 总页数
+            onPageClicked:function(event, originalEvent, type,page){
+              vm.params.currentPage=page;
+              vm.selectOrder();
+            },
+            onPageChanged:function(event, oldPage, newPage){
+              vm.params.currentPage=newPage;
+              vm.selectOrder();
+            }
+          };
+          $("#page").bootstrapPaginator(options);
+
+          this.selectOrder();
+        },
+        methods:{
+          //查询满足条件的订单信息
+          selectOrder:function () {
+            axios({
+              method:'GET',
+              url:'http://localhost:9000/orders/selectOrders',
+              params: this.params,
+            }).then(res => {
+              if (res.data.code === 0){
+                vm.dataList = res.data.dataList;
+                vm.params.pages = res.data.pages;//总页数
+                vm.params.currentPage = res.data.pageNum //第几页
+                $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
+              }
+            }).catch(res => {
+              console.log(res);
+            })
+          },
+
+          //查看订单详情
+          selectOrderDetail:function (orderId) {
+            axios({
+              method:'GET',
+              url:'http://localhost:9000/orders/selectOrderDetail',
+              params:{"orderId":orderId},
+            }).then(res => {
+              if (res.data.code === 0){
+                vm.orderDetailList = res.data.dataList;
+              }
+            }).catch(res => {
+              console.log(res);
+            })
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

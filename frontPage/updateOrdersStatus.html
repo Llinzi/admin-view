@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			//跳转到当前页面表示支付宝扫码成功
+			//1.需要获得新订单的编号
+			//2.将新订单的状态从未付款改为已付款
+			//3.跳转到dingdanzhongxin.html
+			var orderId = window.sessionStorage.getItem("successOrderId");
+			var url = "http://localhost:9000/coffeeOperation/updateOrder";
+			var args = {
+				"orderId":orderId,
+				"orderStatus":2
+			};
+			$.post(url,args,function(data){
+				if(data.code == 0){
+					window.location.href="myOrder.html";
+				}
+			});
+		</script>
+	</body>
+</html>

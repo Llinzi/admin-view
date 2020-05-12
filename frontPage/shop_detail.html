@@ -76,10 +76,10 @@
                               <del>{{coffeeDetail.coffeePrices}}</del>{{coffeeDetail.coffeeDiscount}}
                             </h3>
                             <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 5"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
-                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 4"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
-                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 3"><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
-                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 2"><i class="icon_star"></i><i class="icon_star"></i></h5>
-                            <h5 class="product-rated" v-if="coffeeDetail.coffeeLevel == 1"><i class="icon_star"></i></h5>
+                            <h5 class="product-rated" v-else-if="coffeeDetail.coffeeLevel == 4"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
+                            <h5 class="product-rated" v-else-if="coffeeDetail.coffeeLevel == 3"><i class="icon_star"></i><i class="icon_star"></i></i><i class="icon_star"></i></h5>
+                            <h5 class="product-rated" v-else-if="coffeeDetail.coffeeLevel == 2"><i class="icon_star"></i><i class="icon_star"></i></h5>
+                            <h5 class="product-rated" v-else-if="coffeeDetail.coffeeLevel == 1"><i class="icon_star"></i></h5>
                           </div>
                           <div class="quantity-select">
                             <label for="quantity">购买数量</label>
