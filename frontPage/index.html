@@ -78,7 +78,9 @@
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myInfo">个人信息</a>
                         <a class="dropdown-item" href="myOrder.html">我的订单</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#consignee">收货地址管理</a>
-                        <a class="dropdown-item" href="#">退出登录</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#vip" v-if="userInfo.vip >= 100">是否会员 <span style="color: red">是</span></a>
+                        <a class="dropdown-item" href="#" v-else="">是否会员 <span style="color: red">否</span></a>
+                        <a class="dropdown-item" href="login.html">退出登录</a>
                       </div>
                     </div>
                   </div>
@@ -245,6 +247,36 @@
         </div>
       </div>
       <!--收货地址模态框结束-->
+
+      <!--会员模态框开始-->
+      <div class="modal fade" id="vip">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+              <h4 class="modal-title">会员积分</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+              <div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <h4>会员积分</h4>
+                  </div>
+                  <div class="col-sm-6">
+                    <h5>{{userInfo.vip}}</h5>
+                  </div>
+                </div>
+                <hr/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--会员模态框结束-->
 
       <!-- End header-->
       <div class="slider slider_v2">
@@ -840,7 +872,6 @@
             params: this.coffeeParams,
           }).then(res =>{
             if (res.data.code === 0){
-              console.log(res);
               this.coffeeDataList = res.data.dataList;
               vm.coffeeParams.pages = res.data.pages;//总页数
               vm.coffeeParams.currentPage = res.data.pageNum //第几页
