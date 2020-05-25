@@ -6,7 +6,7 @@
 	</head>
 	<body>
 
-		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
 		<script type="text/javascript">
 			//跳转到当前页面表示支付宝扫码成功
 			//1.需要获得新订单的编号
@@ -16,7 +16,7 @@
 			var url = "http://localhost:9000/coffeeOperation/updateOrder";
 			var args = {
 				"orderId":orderId,
-				"orderStatus":2
+				"orderStatus":1
 			};
 			$.post(url,args,function(data){
 				if(data.code == 0){

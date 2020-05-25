@@ -90,7 +90,8 @@
                   <tbody>
                   <tr>
                     <select class="form-control" style="margin-top: 32px" v-model="consigneeInformationId">
-                      <option v-for="(data,index) in consigneeList" :value="data.consigneeInformationId">{{data.consigneeInformationName}}——{{data.consigneeInformationPhone}}</option>
+                      <option v-for="(data,index) in consigneeList" :value="data.consigneeInformationId">
+                        {{data.consigneeInformationName}}——{{data.consigneeInformationPhone}}</option>
                     </select>
                   </tr>
                   </tbody>

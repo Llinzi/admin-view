@@ -5,55 +5,88 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Veltrix - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>咖啡后台-管理员登录</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="Themesbrand" name="author" />
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <link href="http://cdn.bootstrapmb.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.bootcss.com/font-awesome/5.7.2/css/all.min.css" rel="stylesheet">
+        <link href="assets/plugins/css/slidercaptcha.css">
+        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
+        <link href="disk/slidercaptcha.css" rel="stylesheet" />
+
+        <style>
+            .slidercaptcha {
+                margin: 0 auto;
+                width: 314px;
+                height: 286px;
+                border-radius: 4px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+                margin-top: 40px;
+            }
+
+            .slidercaptcha .card-body {
+                padding: 1rem;
+            }
+
+            .slidercaptcha canvas:first-child {
+                border-radius: 4px;
+                border: 1px solid #e6e8eb;
+            }
+
+            .slidercaptcha.card .card-header {
+                background-image: none;
+                background-color: rgba(0, 0, 0, 0.03);
+            }
+
+            .refreshIcon {
+                top: -54px;
+            }
+        </style>
+
     </head>
 
     <body>
 
-        <div class="home-btn d-none d-sm-block">
-            <a href="index.html" class="text-dark"><i class="fas fa-home h2"></i></a>
-        </div>
-        
-        <div class="wrapper-page">
+        <div class="wrapper-page" id="content">
 
             <div class="card overflow-hidden account-card mx-3">
                 
                 <div class="bg-primary p-4 text-white text-center position-relative">
-                    <h4 class="font-20 m-b-5">Welcome Back !</h4>
-                    <p class="text-white-50 mb-4">Sign in to continue to Veltrix.</p>
-                    <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-sm.png" height="24" alt="logo"></a>
+                    <h4 class="font-20 m-b-5">欢迎登录</h4>
+                    <p class="text-white-50 mb-4">咖啡管理系统后台</p>
+                    <a href="index.html" class="logo logo-admin"><img src="assets/images/logo.jpg" height="70" alt="logo"></a>
                 </div>
                 <div class="account-card-content"> 
 
-                    <form class="form-horizontal m-t-30" action="index.html">
+                    <form class="form-horizontal m-t-30" action="#">
 
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter username">
+                            <label>管理员编号</label>
+                            <input type="text" class="form-control" v-model="params.id">
                         </div>
 
                         <div class="form-group">
-                            <label for="userpassword">Password</label>
-                            <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
+                            <label >密码</label>
+                            <input type="password" class="form-control" v-model="params.pwd">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="slidercaptcha card">
+                                <div class="card-header">
+                                    <span>请完成安全验证</span>
+                                </div>
+                                <div class="card-body"><div id="captcha"></div></div>
+                            </div>
                         </div>
 
                         <div class="form-group row m-t-20">
-                            <div class="col-sm-6">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                    <label class="custom-control-label" for="customControlInline">Remember me</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 text-right">
-                                <button class="btn btn-primary w-md waves-effect waves-light" type="button" id="login">Log In</button>
+                            <div class="col-sm-8 text-right">
+                                <button v-show="loginShow" class="btn btn-primary w-md waves-effect waves-light" type="button" @click="adminLogin()">登录</button>
+                                <button v-show="!loginShow" style="cursor:not-allowed;" class="btn btn-primary w-md waves-effect waves-light" type="button" disabled="disabled">登录</button>
                             </div>
                         </div>
 
@@ -68,10 +101,13 @@
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/vue.min.js"></script>
+        <script src="assets/js/axios.min.js"></script>
         <script src="http://cdn.bootstrapmb.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="assets/js/metisMenu.min.js"></script>
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/waves.min.js"></script>
+        <script src="disk/longbow.slidercaptcha.js"></script>
 
         <!-- App js -->
         <script src="assets/js/app.js"></script>
@@ -84,5 +120,49 @@
 			window.location.href="index.html";
 		});
 	});
+
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            loginShow:false,
+            params: {
+                id:null,
+                pwd:null
+            },
+        },
+        mounted:function () {
+            $('#captcha').sliderCaptcha({
+                repeatIcon: 'fa fa-redo',
+                setSrc: function () {
+                    return 'http://pocoafrro.bkt.clouddn.com/Pic' + Math.round(Math.random() * 136) + '.jpg';
+                },
+                onSuccess: function () {
+                    vm.loginShow = true;
+                }
+            });
+        },
+        methods:{
+           adminLogin:function () {
+               if (this.params.id == "" || this.params.pwd == ""){
+                   alert("请输入编号或密码！！！");
+                   return false;
+               }
+               axios({
+                   method:'GET',
+                   url:'http://localhost:9000/users/adminLogin',
+                   params: vm.params,
+               }).then(res =>{
+                   console.log(res);
+                   if (res.data.code === 0){
+                       window.location.href = "view/userSelect.html";
+                   }else {
+                       alert(res.data.msg);
+                   }
+               }).catch(res =>{
+                   console.log(res);
+               })
+           }
+        }
+    })
 </script>
 </html>
